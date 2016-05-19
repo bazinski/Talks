@@ -21,9 +21,14 @@ http://bazinski.github.io
   Its more a question of offline moving to online for O2.
   90% of time spent in offline reconstruction is the cluster finder.
   1.2s per event for reconstruction, and 1s for cluster finder.
-  100x speed up needed at a minimum
+  100x speed up needed at a minimum // HL
+
+Breakdown of time taken in each parts.
+A pretty diagram
 
 * Options
+
+.code -numbers Thesis-update.slide
 
 * MLEM 
   This is the current algorithm taken from medical imaging.
@@ -31,6 +36,15 @@ http://bazinski.github.io
 
 
 * Alternatives
-  ** TPC cluster finder.
-  ** TRD cluster finder.
-  ** Options
+
+ ** TPC cluster finder.
+
+ ** TRD cluster finder.
+
+ ** Options
+
+ |this is a table of something| column2 | colum 3|
+ |----------------------------|---------|--------|
+ |test|1|2|
+ |test2|3|4|
+
