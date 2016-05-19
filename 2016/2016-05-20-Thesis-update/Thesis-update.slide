@@ -1,0 +1,50 @@
+Thesis update
+Muon Clusterfinder and possibly more.
+14:00 20 May 2016
+Tags: muon, clusterfinder, cern, alice, mrrtf, coding
+
+Sean Murray
+SysAdmin/Researcher
+murrays@cern.ch
+http://bazinski.github.io
+@bazinski
+
+* Contents
+
+ - Why do we need a new/updated cluster finder.
+ - What are the options
+ - MLEM
+ - Alternatives
+
+* Why a new cluster finder.
+
+  Its more a question of offline moving to online for O2.
+  90% of time spent in offline reconstruction is the cluster finder.
+  1.2s per event for reconstruction, and 1s for cluster finder.
+  100x speed up needed at a minimum // HL
+
+Breakdown of time taken in each parts.
+A pretty diagram
+
+* Options
+
+.code -numbers Thesis-update.slide
+
+* MLEM 
+  This is the current algorithm taken from medical imaging.
+  PET detectors primarily.
+
+
+* Alternatives
+
+ ** TPC cluster finder.
+
+ ** TRD cluster finder.
+
+ ** Options
+
+ |this is a table of something| column2 | colum 3|
+ |----------------------------|---------|--------|
+ |test|1|2|
+ |test2|3|4|
+
