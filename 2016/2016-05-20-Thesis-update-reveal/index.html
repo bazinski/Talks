@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -67,19 +67,19 @@
 						<thead>
 							<tr>
 								<th>Operation</th>
-								<th>Relative Time</th>
-								<th>another colum</th>
+								<th>Relative Time [%]</th>
+								<th>notes</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>raw data decoding</td>
-								<td>5</td>
-								<td>?</td>
+								<td>4</td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>raw data filtering</td>
-								<td>5</td>
+								<td>2</td>
 								<td>?</td>
 							</tr>
 							<tr>
@@ -89,39 +89,54 @@
 							</tr>
 							<tr>
 								<td>Clustering</td>
-								<td>65</td>
+								<td>63</td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>Tracking</td>
-								<td>5</td>
+								<td>7</td>
 								<td>?</td>
 							</tr>
 							<tr>
 								<td>MID Tracking</td>
-								<td>5</td>
+								<td>6</td>
 								<td>?</td>
 							</tr>
 							<tr>
 								<td>MCH-MID Matching</td>
-								<td>5</td>
+								<td>8</td>
 								<td>?</td>
 							</tr>
 						</tbody>
 					</table>
       </section>
           <section>
-            <canvas class="stretch" data-chart="pie">
-,Black, Red, Green, Yellow, Violet, Blue, Magenta
-My first dataset, 65,5,5,10,5,5,5
+            <canvas class="stretch" data-chart="bar">
+datadecoding
+data decoding, 4
+data filtering, 2
+pre clustering, 10
+clustering, 63
+MCH Tracking, 7
+MID Tracking, 6
+Track Matching, 8
+<!-- 
+{
+"data" : {
+"datasets" : [{ "backgroundColor": "#0f0" }, { "backgroundColor": "#0ff" } ]
+},
+"options": { "responsive": true, "scales": { "xAxes": [{ "stacked": true }], "yAxes": [{ "stacked": true }] } }
+}
+-->
 				</canvas>
+        This needs to be done across runs and datasets, pp(lhc16h above) and pbpb and error bars.
           </section>
 				</section>
 
 				<section data-background-transition="slide">
 					<h2>Why do we care</h2>
 					<p>
-						We all love cluster finding, its the most critical part of the experiment.
+          We all love cluster finding, its the most critical part of the experiment. 
 					</p>
           <p>
           O2 requires online to have physics quality. Offline must move to online.
@@ -131,7 +146,7 @@ My first dataset, 65,5,5,10,5,5,5
           </p>
 				</section>
 
-				<!-- Example of nested vertical slides -->
+				<!-- nested vertical slides -->
 				<section>
 					<section data-background-transition="convex">
             <h2>Maximum Likelihood Expectation Maximization (MLEM)</h2>
@@ -146,14 +161,29 @@ My first dataset, 65,5,5,10,5,5,5
 					</section>
 					<section>
 						<h2>MLEM</h2>
-						<p>Expectation step (E step) : the formula expressing the likelihood of any reconstructed image given the measured data is formed (Poisson noise)</p>
-            <p>Maximisation step (M step) : the image that has the greatest probability to give the measured data is found.</p>
+						<p>Expectation step (E step) : the formula expressing the likelihood of any reconstructed cluster given the measured data is formed (Poisson noise)</p>
+            <p>Maximisation step (M step) : the cluster elements that has the greatest probability to give the measured data is found.</p>
 					</section>
-				</section>
         <section>
-          projection and backprojection pipelined.
-
+          <ol>
+            <li>various sundry optimisations std cpu to gpu</li>
+            <li>projection and backprojection pipelined.</li>
+          </ol>
+          <p>Currently x3 speed, have not bothered to extend to physics, its too poor as it is, in search of another x97.</p>
         </section>
+        <section>
+          <h3> adding pads</h3>
+          <ol>
+            <li>precluster kind of like a threshold, providing array of active pads</li>
+            <li>precluster provides array of</li>
+            <li>find regions of interest for clusters</li>
+            <li>Add virtual pads if neccessary ?? Somehow critical</li>
+            <li>Is cluster splittable</li>
+            <li>loop on mlem reducing pixel size until sufficiently small, see performance of loop iteration per data dataset. REDO graphs</li>
+            <li> calc COG 
+            </ol>
+        </section>
+				</section>
 				<section id="algooptions">
           <h2> The Options </h2>
           <p>
