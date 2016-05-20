@@ -180,8 +180,36 @@ Track Matching, 8
             <li>Add virtual pads if neccessary ?? Somehow critical</li>
             <li>Is cluster splittable</li>
             <li>loop on mlem reducing pixel size until sufficiently small, see performance of loop iteration per data dataset. REDO graphs</li>
-            <li> calc COG 
+            <li> calc COG </li> 
+            <li> move to tracking </li>
             </ol>
+        </section>
+        <section>
+          <h2> Function in question </h2>
+          <pre><code class="c++" data-trim contenteditable>
+          //_____________________________________________________________________________
+Bool_t AliMUONClusterFinderMLEM::MainLoop(AliMUONCluster& cluster, Int_t iSimple)
+{
+  /// Repeat MLEM algorithm until pixel size becomes sufficiently small
+  
+.............
+  
+  AddVirtualPad(cluster); // add virtual pads if necessary
+  
+  Int_t npadTot = cluster.Multiplicity();
+............
+}
+          </code></pre>
+          <pre><code class="c++" data-trim contenteditable>
+          //_____________________________________________________________________________
+void AliMUONClusterFinderMLEM::AddVirtualPad(AliMUONCluster& cluster)
+{
+  /// Add virtual pad (with small charge) to improve fit for clusters
+  /// with number of pads == 2 per direction
+.........
+}
+          </code></pre>
+          250 lines of code ...
         </section>
 				</section>
 				<section id="algooptions">
