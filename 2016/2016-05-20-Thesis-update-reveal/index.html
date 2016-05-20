@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -47,6 +47,19 @@
 						<small>Created by <a href="http://bazinski.github.io">Sean Murray</a> / <a href="http://twitter.com/bazinski">@bazinski</a></small>
 					</p>
 				</section>
+        <section>
+          <h2>Nominal pp event </h2>
+          <img src='https://inspirehep.net/record/889158/files/ppalice.png' alt='pp event from ALICE' style="width: auto; height: auto;max-width: 520px;max-height: 400px"/>
+          <p>Nucl.Phys. A862-863 (2011) 223-230 arXiv:1102.2071 </p>
+        </section>
+        <section>
+          <h2>Nominal PbPb event </h2>
+          <img src='http://irfu.cea.fr/Images/astImg/2957_2.png' alt='pp event from ALICE' /> <!--style="width: auto; height: auto;max-width: 620px;max-height: 500px"/> -->
+        </section>
+        <section>
+          <h2>O2 upgrade</h2>
+          <img src="images/o2-hardware.png" />
+        </section>
 		<section>
       <section>
 					<h2>MUON Reconstruction</h2>
@@ -128,14 +141,19 @@ My first dataset, 65,5,5,10,5,5,5
 					</section>
 					<section>
 						<h2>The basic Algorithm</h2>
-						<p></p>
+						<p>An (EM) algorithm is an iterative method for finding maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved latent variables. The EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step. These parameter-estimates are then used to determine the distribution of the latent variables in the next E step.
+            </p>
 					</section>
 					<section>
 						<h2>MLEM</h2>
-						<p>----</p>
+						<p>Expectation step (E step) : the formula expressing the likelihood of any reconstructed image given the measured data is formed (Poisson noise)</p>
+            <p>Maximisation step (M step) : the image that has the greatest probability to give the measured data is found.</p>
 					</section>
 				</section>
+        <section>
+          projection and backprojection pipelined.
 
+        </section>
 				<section id="algooptions">
           <h2> The Options </h2>
           <p>
@@ -172,7 +190,7 @@ My first dataset, 65,5,5,10,5,5,5
 					<ol>
 						<li>Get RAW data of previous analyses.</li>
 						<li>Newer GPU for new compute engines.</li>
-						<li>Machine Learning.</li>
+						<li>Alternative Machine Learning.</li>
             <li>Investigate the combined Tracking/Clustering option</li>
 					</ol>
 				</section>
