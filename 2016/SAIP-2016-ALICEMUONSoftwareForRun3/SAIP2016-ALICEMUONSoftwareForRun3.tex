@@ -40,37 +40,59 @@
 
 \begin{frame}
 \frametitle{ALICE}
-Pick of alice\ldots.
+
+  \center{
+  \includegraphics[scale=0.35,trim={5cm 2cm 3cm 4cm},clip]{images/pg_0004.pdf}
+  }
 \end{frame}
 
 \begin{frame}
 \frametitle{ALICE MUON Arm}
-Pic of muon arm \ldots
+  \center{
+  \includegraphics[scale=0.35,trim={3cm 1cm 3cm 4cm},clip]{images/pg_0005.pdf}
+  }
 \end{frame}
 
 \begin{frame}
   \frametitle{ALICE MUON diagram}
 
+  \center{
+  \includegraphics[scale=0.35,trim={2cm 0.75cm 1cm 10cm},clip]{images/pg_0022.pdf}
+  }
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Detector Structure}
-pic of detector slats 
+\frametitle{Detector Structure Station1}
+\centering{
+\includegraphics[scale=0.25]{images/MuonStation1.pdf}
+} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Detector Slats}
+\centering{
+\includegraphics[scale=0.5]{images/MUONSlat.pdf}
+} 
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Detector Structure 2}
-pic of wire chamber 
+\frametitle{Detector Slats in Position}
+\centering{
+\includegraphics[scale=0.75,trim={2cm 7cm 3cm 7cm},clip]{images/Station1Wires.pdf}
+} 
 
 \end{frame}
 
 \section{O2 and Run3}
 \begin{frame}
 \frametitle{O2 Online/Offline}
+hlt daq offline pic
 
-
+\end{frame}
+\begin{frame}
+  \frametitle{O2 Farm}
 \end{frame}
 
 \section{Current MUON Software}
@@ -79,57 +101,59 @@ pic of wire chamber
 \frametitle{Current MUON Software}
 
 
-\begin{theorem}
-The angles in a triangle sum to $180^{\circ}$.
-\end{theorem}
-
-\pause
-
-Plan:  Extend AC past C to D.  Draw CE parallel to AB.
-
-\includegraphics[width = 2.0in]{BeamerTriangle.jpg}  
-
+\begin{itemize}
+  \item Raw Data Decoding
+  \item Raw Data Filtering
+  \item Pre Clustering
+  \item Clustering
+  \item Tracking (MCH)
+  \item Tracking (MID)
+  \item Track Matching MCH-MID
+\end{itemize}
 \end{frame}
 
-\begin{frame}
 
+\begin{frame}
+  \frametitle{Time Spent}
 \begin{proof}
 
-\begin{tabular}{ll}
+\begin{tabular}{|l|r|}
+  Function & \% Time \\ 
 % uncover makes advanced overlay
-\uncover<1->{1. u = y} & \uncover<2->{Alternate angles of a
-transveral.} \\ 
-\uncover<3->{2. v = x} & \uncover<4->{Consecutive interior angles of a
-transveral} \\ 
-\uncover<5->{3. z+u+v = $180^{\circ}$} & \uncover<6->{ACD is a straight
-line.} \\ 
-\uncover<7->{4. z+y+x = $180^{\circ}$} & \uncover<8->{Substitution
-from Steps 1 and 2.} \\
-\end{tabular}
-
+\uncover<1->{Raw Data Decoding} & \uncover<2->{4}\\
+\uncover<3->{Raw Data Filtering} & \uncover<4->{2}\\
+\uncover<5->{Pre Clustring} & \uncover<6->{10}\\
+\uncover<7->{Clustering} & \uncover<8->{63}\\
+\uncover<9->{Tracking MCH} & \uncover<10->{7}\\
+\uncover<11->{Tracking MID} & \uncover<12->{6}\\
+\uncover<13->{Track matching} & \uncover<14->{8}\\
+\end{tabular}\\
 \end{proof}
 
+Need more data for broader run (PbPb, pPb, pp) and errors.
 \end{frame}
 
 \section{Cluster Finder}
 
 \begin{frame}
 \frametitle{What is a cluster finder} 
-
+picture of a couple of clusters.
 \begin{itemize}
-
-\item This tour just scratches the surface.  
-\pause
-
-\item {\sc beamer} has enough features to fill a 210-page user manual!  
-\pause
-
-\item Advanced example:
-\url{http://latex-beamer.sourceforge.net/beamerexample1.pdf}.
+\item some stuff
 
 \end{itemize}
 
 \end{frame}
-
+\begin{frame}
+  \frametitle{Logical Parts}
+  \begin{itemize}
+    \item Add Virtual pads if necessary  
+    \item Find Center of Gravity given maximal pixel
+      \item aaa
+  \end{itemize}
+  \begin{equation}
+    X_{ocg}=\frac{\sum_{i=1}^5 X_i Q_i}{Q_i}
+  \end{equation}
+\end{frame}
 \end{document}
 

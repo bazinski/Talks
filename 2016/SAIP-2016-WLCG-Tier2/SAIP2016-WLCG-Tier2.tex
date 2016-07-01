@@ -1,4 +1,3 @@
-
 \documentclass{beamer}
 
 % for themes, etc.
@@ -12,7 +11,7 @@
 % these will be used later in the title page
 \title{CHPC WLCG Tier2 Facility}
 \author{Sean Murray \\
-    CHPCs \\
+    CHPC \\
     CSIR 
 }
 \date{July 7, 2016}
@@ -66,41 +65,38 @@ network
 \section{Three pillars}
 
 \begin{frame}
-\frametitle{Current MUON Software}
+\frametitle{Weird Problems}
 
-(Illustrating {\sc beamer}'s $\backslash$uncover command.)
-\vskip 0.5in
-
-\begin{theorem}
-The angles in a triangle sum to $180^{\circ}$.
-\end{theorem}
-
-\pause
-
-Plan:  Extend AC past C to D.  Draw CE parallel to AB.
-
-\includegraphics[width = 2.0in]{BeamerTriangle.jpg}  
+pic of network from 27 june where the jobs reduce and network cleans up, additionally the over consumption of the network and the associated job errors.
 
 \end{frame}
 
 \begin{frame}
+  \frametitle{Current hardware}
+  50 nodes of 48 cores 192GB RAM and 1.6TB of SSD, 1G ethernet
+  34 nodes of 48 cores 96GB RAM and 1TB, infiniband
+\end{frame}
 
-\begin{proof}
+\begin{frame}
+  \frametitle{Current Storage}
+  348TB EOS for ALICE
+  252 TB EOS for ATLAS
+  107 TB lustre for 34 nodes.
+\end{frame}
 
-\begin{tabular}{ll}
-% uncover makes advanced overlay
-\uncover<1->{1. u = y} & \uncover<2->{Alternate angles of a
-transveral.} \\ 
-\uncover<3->{2. v = x} & \uncover<4->{Consecutive interior angles of a
-transveral} \\ 
-\uncover<5->{3. z+u+v = $180^{\circ}$} & \uncover<6->{ACD is a straight
-line.} \\ 
-\uncover<7->{4. z+y+x = $180^{\circ}$} & \uncover<8->{Substitution
-from Steps 1 and 2.} \\
-\end{tabular}
+\begin{frame}
+  \frametitle{Current Performance}
 
-\end{proof}
+\end{frame}
 
+\begin{frame}
+  \frametitle{Availability / Reliability}
+  wlcg, egi, alice, atlas, chpc(zabbix/grafana).
+\end{frame}
+
+\begin{frame}
+  \frametitle{upgrades}
+  puppify, stabilise, collaborate with aaroc.
 \end{frame}
 
 \section{SAGrid, user analysis}
@@ -108,6 +104,8 @@ from Steps 1 and 2.} \\
 \frametitle{PROOF}
 \ldots\ldots\ldots\ldots
 \end{frame}
+
+
 \begin{frame}
 \frametitle{SAGrid and AAROC}
 \ldots\ldots\ldots\ldots
@@ -116,22 +114,19 @@ from Steps 1 and 2.} \\
 \section{Tier1}
 
 \begin{frame}
-\frametitle{What is a cluster finder} 
-
-\begin{itemize}
-
-\item This tour just scratches the surface.  
-\pause
-
-\item {\sc beamer} has enough features to fill a 210-page user manual!  
-\pause
-
-\item Advanced example:
-\url{http://latex-beamer.sourceforge.net/beamerexample1.pdf}.
-
-\end{itemize}
+\frametitle{Technical Requirements} 
 
 \end{frame}
+
+\begin{frame}
+\frametitle{People Requirements} 
+24x7 operation.
+storage, hpc, support.
+operators on call.
+wlcg membership
+meetings, meetings, meetings.
+\end{frame}
+
 
 \end{document}
 
