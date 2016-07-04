@@ -81,18 +81,19 @@
 \frametitle{Detector Slats in Position}
 \centering{
 \includegraphics[scale=0.75,trim={2cm 7cm 3cm 7cm},clip]{images/Station1Wires.pdf}
-} 
-
+} \\
+add also fig 3.28 from chp 3 of MuON TDR
 \end{frame}
 
 \section{O2 and Run3}
 \begin{frame}
 \frametitle{O2 Online/Offline}
-hlt daq offline pic
+
 
 \end{frame}
 \begin{frame}
   \frametitle{O2 Farm}
+
 \end{frame}
 
 \section{Current MUON Software}
@@ -118,15 +119,15 @@ hlt daq offline pic
 \begin{proof}
 
 \begin{tabular}{|l|r|}
-  Function & \% Time \\ 
+  Function & \% pp Time in \% & PbPb 2011 & PbPb 2015\\ 
 % uncover makes advanced overlay
-\uncover<1->{Raw Data Decoding} & \uncover<2->{4}\\
-\uncover<3->{Raw Data Filtering} & \uncover<4->{2}\\
-\uncover<5->{Pre Clustring} & \uncover<6->{10}\\
-\uncover<7->{Clustering} & \uncover<8->{63}\\
-\uncover<9->{Tracking MCH} & \uncover<10->{7}\\
-\uncover<11->{Tracking MID} & \uncover<12->{6}\\
-\uncover<13->{Track matching} & \uncover<14->{8}\\
+Raw Data Decoding & 4 & &\\
+Raw Data Filtering & 2 & &\\
+Pre Clustring & 10 & &\\
+Clustering & 63 & & \\
+Tracking MCH & 7 & & \\
+Tracking MID & 6 & & \\
+Track matching & 8 & & \\
 \end{tabular}\\
 \end{proof}
 
@@ -142,8 +143,8 @@ picture of a couple of clusters.
 \item some stuff
 
 \end{itemize}
-
 \end{frame}
+
 \begin{frame}
   \frametitle{Logical Parts}
   \begin{itemize}
@@ -151,9 +152,12 @@ picture of a couple of clusters.
     \item Find Center of Gravity given maximal pixel
       \item aaa
   \end{itemize}
-  \begin{equation}
-    X_{ocg}=\frac{\sum_{i=1}^5 X_i Q_i}{Q_i}
-  \end{equation}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Effect of not adding Virtual Pads}
+
+\end{frame}
+
 \end{document}
 
