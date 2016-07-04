@@ -46,12 +46,38 @@
   }
 \end{frame}
 
+
+\section{O2 and Run3}
+\begin{frame}
+\frametitle{O2 Online/Offline}
+We will not go into depth, this is a whole another talk.
+Important numbers to take away :
+\begin{itemize}
+  \item 50kHz event rate.
+  \item 1.1 TB/s agregate data rate, spikes upto 15.
+  \item continuous read out for most detectors, tpc and muon sharing electronics.
+  \item Completely new framework.
+  \item merge HLT, data acquisition and offline into 1 code base and platform.
+  \item calibration and reconstruction online.
+  \item Collaboration with FAIR for new framework.
+\end{itemize}
+
+\end{frame}
+\begin{frame}
+  \frametitle{O2 Farm}
+  \center{
+  \includegraphics[scale=0.7,trim={3cm 18cm 3cm 3cm},clip]{images/ALICE_TDR-019_49.pdf}
+  }
+\end{frame}
+
 \begin{frame}
 \frametitle{ALICE MUON Arm}
   \center{
   \includegraphics[scale=0.35,trim={3cm 1cm 3cm 4cm},clip]{images/pg_0005.pdf}
   }
 \end{frame}
+
+\section{ALICE Muons}
 
 \begin{frame}
   \frametitle{ALICE MUON diagram}
@@ -69,32 +95,59 @@
 } 
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Detector Structure Station1 quadrant}
+\centering{
+\includegraphics[scale=0.75,trim={2cm 7cm 3cm 7cm},clip]{images/Station1Wires.pdf}
+} \\
+\end{frame}
+
 \begin{frame}
 \frametitle{Detector Slats}
 \centering{
 \includegraphics[scale=0.5]{images/MUONSlat.pdf}
 } 
-
 \end{frame}
-
 \begin{frame}
-\frametitle{Detector Slats in Position}
+\frametitle{Detector Slats in place}
 \centering{
-\includegraphics[scale=0.75,trim={2cm 7cm 3cm 7cm},clip]{images/Station1Wires.pdf}
+\includegraphics[scale=0.5]{images/MUONSlatsIn.pdf}
+} 
+\end{frame}
+
+\begin{frame}
+\frametitle{MUON Slats through the Dipole}
+\centering{
+\includegraphics[scale=0.5, trim={2cm 1cm 17cm 16cm},clip]{images/pg_0006.pdf}
 } \\
-add also fig 3.28 from chp 3 of MuON TDR
+
 \end{frame}
 
-\section{O2 and Run3}
 \begin{frame}
-\frametitle{O2 Online/Offline}
-
-
+  \frametitle{Nominal pp event}
+\centering{
+\includegraphics[scale=0.35]{images/7TeVALICEEvent.pdf}
+} \\
+pp at $\sqrt{s}$=7TeV, 2010 \\
+Nucl.Phys. A862-863 (2011) 223-230
 \end{frame}
+
 \begin{frame}
-  \frametitle{O2 Farm}
-
+  \frametitle{Nominal PbPb event}
+\centering{
+\includegraphics[scale=0.25]{images/HeavyIon.pdf}
+} \\
+PbPb at $\sqrt{s}$=7 TeV, 2015 \\
 \end{frame}
+
+\begin{frame}
+  \frametitle{Diagram of detection}
+\centering{
+\includegraphics[scale=0.5]{images/bendingnonbending.pdf}
+} 
+\end{frame}
+
 
 \section{Current MUON Software}
 
@@ -103,7 +156,7 @@ add also fig 3.28 from chp 3 of MuON TDR
 \begin{itemize}
   \item Raw Data Decoding
   \item Raw Data Filtering
-  \item Pre Clustering
+  \item Pre Clustering 
   \item Clusterise, locate cluster interaction point.
   \item Tracking (MCH)
   \item Tracking (MID)
@@ -111,6 +164,14 @@ add also fig 3.28 from chp 3 of MuON TDR
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{where to start}
+  \begin{quote}
+\small{There is no doubt that the grail of efficiency leads to abuse. Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97\% of the time: premature optimization is the root of all evil.
+Yet we should not pass up our opportunities in that critical 3\%. A good programmer will not be lulled into complacency by such reasoning, he will be wise to look carefully at the critical code; but only after that code has been identified.}  
+  \end{quote}
+Donald Knuth, ACM Computing Surveys, Vol 6, No. 4, Dec. 1974 (see p.268)
+\end{frame}
 
 \begin{frame}
   \frametitle{Time Spent}
@@ -127,45 +188,65 @@ Tracking MCH & 7 & & \\
 Tracking MID & 6 & & \\
 Track matching & 8 & & \\
 \end{tabular}\\
-
-Need more data for broader run (PbPb, pPb, pp) and errors.
+\vspace{2cm}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Graphically}
+  include graphic of table.
+\end{frame}
 \section{Cluster Finder}
 
 \begin{frame}
 \frametitle{What is a cluster finder} 
 picture of a couple of clusters.
-\begin{itemize}
-\item some stuff
-
-\end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{MLEM Algorithm}
+explain mlem
+\end{frame}
+
+\begin{frame}
+  \frametitle{MLEM }
+
+\end{frame}
+
 
 \begin{frame}
   \frametitle{Logical Parts}
   \begin{itemize}
     \item Add Virtual pads if necessary  
     \item Find Center of Gravity given maximal pixel
-      \item aaa
+    \item MLEM
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Effect of not adding Virtual Pads}
-
+graph of radius of like clusters.
 \end{frame}
 
 \begin{frame}
-  \frametitle{MLEM Algorithm}
+  \frametitle{Effect of limiting the convergence to 5}
+graph of radius of like clusters.
 \end{frame}
 
 \begin{frame}
   \frametitle{Speed up}
+\begin{itemize}
+  \item look for dead code
+  \item change data or reorder to hit caches better.
+  \item get a faster cpu. sadly not going to happen
+  \item gpu x3 
+  \item fpga - try to avoid.
+\end{itemize}
+Performed on a i7 with nvidia gtx 980, will have to be repeated on other hardware.
 \end{frame}
 
 \begin{frame}
 \frametitle{Something else}
+Look at the physics, and figure out a way to optimise based on the physics \ldots
 \end{frame}
 
 \end{document}
