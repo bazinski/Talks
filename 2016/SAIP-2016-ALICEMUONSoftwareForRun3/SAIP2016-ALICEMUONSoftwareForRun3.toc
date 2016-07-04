@@ -2,4 +2,4 @@
 \beamer@sectionintoc {1}{ALICE}{2}{0}{1}
 \beamer@sectionintoc {2}{O2 and Run3}{9}{0}{2}
 \beamer@sectionintoc {3}{Current MUON Software}{12}{0}{3}
-\beamer@sectionintoc {4}{Cluster Finder}{28}{0}{4}
+\beamer@sectionintoc {4}{Cluster Finder}{15}{0}{4}
