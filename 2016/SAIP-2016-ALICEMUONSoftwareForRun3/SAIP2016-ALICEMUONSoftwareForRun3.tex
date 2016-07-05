@@ -8,7 +8,9 @@
 
 \usepackage{times}  % fonts are up to you
 \usepackage{graphicx}
+\usepackage{color,colortbl}
 
+\definecolor{MRed}{rgb}{1,.6,.6}
 % these will be used later in the title page
 \title{ALICE MUON Software for run 3}
 \author{Sean Murray \\
@@ -50,7 +52,7 @@
 \section{O2 and Run3}
 \begin{frame}
 \frametitle{O2 Online/Offline}
-We will not go into depth, this is a whole another talk.
+We will not go into depth, this is a whole other presentation.
 Important numbers to take away :
 \begin{itemize}
   \item 50kHz event rate.
@@ -68,6 +70,31 @@ Important numbers to take away :
   \center{
   \includegraphics[scale=0.7,trim={3cm 18cm 3cm 3cm},clip]{images/ALICE_TDR-019_49.pdf}
   }
+\end{frame}
+
+\begin{frame}
+  \frametitle{MUON Links}
+  \tiny{\begin{tabular}{|l|l|r|r|r|l|r|r|}
+   Detector  &      Link    &  \multicolumn{3}{c}{ Number of links}   &     Read-out &   \multicolumn{2}{c}{Number of boards} \\
+             &      type    & DDL1& DDL2 &  GBT  &  board type&   C-RORC& CRU \\ \hline\hline
+    ACO      &     DDL1     &  1  &      &       &  C-RORC    &      1   &   \\ 
+    CPV      &     DDL1     &  6  &      &       &  C-RORC    &      1   &\\ 
+    CTP      &    GBT       &     &      &    14 &  CRU       &          &     1\\ 
+    EMC      &   DDL2       &     &   20 &       &  C-RORC    &      4   &\\ 
+    FIT      &     DDL2     &     &    2 &       &  C-RORC    &      1   &\\ 
+    HMP      &     DDL1     &  14 &      &       &  C-RORC    &      4   &\\ 
+    ITS      &     GBT      &     &      &   495 &  CRU       &          &               23\\ 
+\rowcolor{MRed}    MCH      &     GBT      &     &      &   550 &  CRU       &          &               25\\ 
+\rowcolor{MRed}    MFT      &     GBT      &     &      &   304 &  CRU       &          &               14\\ 
+\rowcolor{MRed}    MID      &     GBT      &     &      &    32 &  CRU       &          &                2\\ 
+    PHS      &     DDL2     &     &      &    16 &  C-RORC    &     4    &\\ 
+    TOF      &     GBT      &     &      &    72 &  CRU       &          &               3\\ 
+    TPC      &     GBT      &     &      &  5832 &  CRU       &          &             324\\ 
+    TRD      &     Custom   &     &      &  1044 &  CRU       &          &              54\\ 
+    ZDC      &     GBT      &     &      &     1 &  CRU       &          &               1\\  \hline
+    Total    &               & 21 &  38  &  8344 &            &   15     &          447\\ 
+            \end{tabular}}\\
+            Muon therefore gets 5 FLP's
 \end{frame}
 
 \begin{frame}
