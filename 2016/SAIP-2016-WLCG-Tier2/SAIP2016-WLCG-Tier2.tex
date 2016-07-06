@@ -40,9 +40,15 @@
 
 \begin{frame}
 \frametitle{What is the WLCG}
-
-\ldots\ldots\ldots
-
+\centering{
+\includegraphics[scale=0.4]{WLCG-TiersJun14_v9.png}
+}
+\end{frame}
+\begin{frame}
+\frametitle{WLCG Map of Sites}
+\centering{
+\includegraphics[scale=0.5]{WLCG-Sites.png}
+}
 \end{frame}
 
 \begin{frame}
@@ -63,15 +69,27 @@
 
 \begin{frame}
 \frametitle{Commitments}
+According to Tender :
+\begin{itemize}
+  \item ALICE 600 cores
+  \item ATLAS 600 cores
+  \item ALICE 400TB
+  \item ATLAS 400TB
+\end{itemize}
+According to :
 https://wlcg-rebus.cern.ch/apps/pledges/resources/
+\begin{itemize}
+  \item 6000 HEPSPEC06 cores (560 of our cores)
+  \item 100TB storage
+  \item All ALICE.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{What is currently delivered}
-
-cpu
-storage
-network
+  \frametitle{Computing Infrastructure}
+  \centering{
+  \includegraphics[scale=0.30]{CHPCConnectivityDiagram.jpg}
+  }
 \end{frame}
 
 \begin{frame}
@@ -92,16 +110,21 @@ network
 \begin{frame}
   \frametitle{Current Storage}
   \begin{itemize}
-    \item 348TB EOS for ALICE
-    \item 252 TB EOS for ATLAS
+    \item 383TB EOS for ALICE, down from 440TB
+    \item 252 TB EOS for ATLAS, down from 400TB
     \item 107 TB lustre for 34 nodes.
     \item 104 TB EMC for ATLAS, dead.
   \end{itemize}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Current Performance}
-147k processes
+\begin{itemize}
+  \item 465k ALICE jobs in last year
+  \item Avg concurrent jobs 704.
+  \item ALICE 358TB storage live 17 June
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -112,13 +135,14 @@ network
     \item EGI
     \item ALICE
     \item ATLAS
-    \item me via zabbix/grafana and AAROC slack channel.
+    \item me via zabbix/grafana and AAROC 
   \end{itemize}
+
 \end{frame}
 
 \begin{frame}
   \frametitle{Grafana ALICE}
-  \includegraphics[]{}
+  \includegraphics[scale=0.25]{ALICEProcessing-Grafana.pdf}
   This is currently being expanded to pull in more from MonaLisa.
 \end{frame}
 
@@ -132,9 +156,14 @@ It has not been an easy 4 months.
   \item [22 Jun] General Power failure
 \end{itemize}
 \end{frame}
-
 \begin{frame}
-  \frametitle{Data Traffic 6 July}
+  \frametitle{Our Data's Scenic Tour}
+  \centering{
+  \includegraphics[scale=1]{african_undersea_cables.jpg}
+  }
+\end{frame}
+\begin{frame}
+  \frametitle{Data Traffic Mid June}
   \centering{
   \includegraphics[scale=0.25]{wacsinmidjun.pdf}\\
   \includegraphics[scale=0.25]{seacomoutmidjun.pdf}
@@ -144,15 +173,22 @@ It has not been an easy 4 months.
 \begin{frame}
   \frametitle{upgrades}
   \begin{itemize}
+    \item attempts to delay till CC7 validation have failed.
     \item Puppify, to auto site deployment, r10k an issue.
     \item Transition to foreman from xcat.
     \item Fix ATLAS Storage (reinstall)
-    \item upgrade monitoring server centos7 with zabbix 3 and new grafana to technical reasons.
-    \item Rewire do network, redo power to monitored pdu, monitor all.
-    \item add inherent redundancy into 10G interfaces on ce,se,se2, cables hanging loose.
+    \item upgrade monitoring server to zabbix3 and new grafana to technical reasons.
+    \item Rewire whole network, repower to monitored pdu, and monitor all.
+    \item Add inherent redundancy into 10G interfaces on ce,se,se2.
     \item Reinstall while TRYING to keep A/R. problems are vobox and ce. 
     \item Storage, we need an additional 750TB for ALICE and ATLAS.
   \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Computing Infrastructure}
+  \centering{
+  \includegraphics[scale=0.30]{CHPCConnectivityDiagram.jpg}
+  }
 \end{frame}
 \begin{frame}
   \frametitle{Transparency}
@@ -164,12 +200,13 @@ It has not been an easy 4 months.
     \item Still have GGUS for normal tickets.
     \item Some training on the user analysis facility (hopefully online)
     \item A couple of things remain private like network diagrams, obviously, and passwords.
+    \item AAROC slac channels.
   \end{itemize}
 \end{frame}
 \begin{frame}
-  \includegraphics[scale=0.25]{ALICEProcessing-Grafana.pdf}
-  \includegraphics[scale=0.25]{ATLASProcessing-Grafana.pdf}
-  \includegraphics[scale=0.25]{Server50-Grafana.pdf}
+  \includegraphics[scale=0.25]{ALICEProcessing-Grafana.pdf}\\
+  \includegraphics[scale=0.25]{ATLASProcessing-Grafana.pdf}\\
+  \includegraphics[scale=0.25]{Server50-Grafana.pdf}\\
   \includegraphics[scale=0.25]{GrafanaMenu.pdf}
 \end{frame}
 
@@ -189,10 +226,12 @@ I got the go ahead 3 weeks ago to claim 28 of the 34 nodes back for sagrid and H
 
 \begin{frame}
 \frametitle{AAROC and SAGrid}
-A collaboration spanning Africa and Arabia.\\
-Eveything is on github under AAROC.\\
-Share the resources of a massively disparate collection of computing resources transparently to the user.\\
-Idea of a automated site, via sound deployment tools.
+\begin{itemize}
+  \item A collaboration spanning Africa and Arabia.\\
+  \item Eveything is on github under AAROC.\\
+  \item Share the resources of a massively disparate collection of computing resources transparently to the user.\\
+  \item Idea of a automated site, via sound deployment tools, and constant integration.
+\end{itemize}
 \end{frame}
 
 \section{Tier1}
@@ -202,19 +241,32 @@ Idea of a automated site, via sound deployment tools.
 Its a long list but first and foremost :\\
 \begin{quote}
   \centering{
-  \huge{A STABLE, RELIABLE Tier 2}}\\
+  \visible<2->{  \huge{A STABLE, RELIABLE Tier2}}}\\
 \end{quote}
-The criticality of that can not be under estimated.
+\visible<2->{The criticality of that can not be under estimated.}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tier 1 Technical Requirements} 
+\begin{itemize}
+  \item Custodial storage of raw data.
+  \item O(10k) cores
+  \item single digit petabytes storage
+  \item redundant links on LHCOPN (light paths to cern) 10Gbps.
+\end{itemize}
+This is the easy part its just a question of money.\\
+The human and process requirements are more onnerous.
 \end{frame}
 
 \begin{frame}
   \frametitle{Tier 1 SLA}
   \begin{itemize}
-    \item 99\uptime with beam on.
+    \item 99\% uptime with beam on.
     \item 4 hour response to failures or degraded service.
-    \item 
+    \item  
   \end{itemize}
 \end{frame}
+
 \begin{frame}
 \frametitle{People Requirements} 
 24x7 operation.
@@ -223,7 +275,13 @@ operators on call.
 wlcg membership
 meetings, meetings, meetings.
 \end{frame}
-
+\section{Backup Slides}
+\begin{frame}
+  \frametitle{LHCOPN}
+  \centering{
+  \includegraphics[scale=0.4]{map-lhcopn.png}
+  }
+\end{frame}
 
 \end{document}
 (
