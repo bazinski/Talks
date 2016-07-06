@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.7.3)  5 JUL 2016 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.7.3)  6 JUL 2016 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1072,44 +1072,45 @@ Package pdftex.def Info: images/ALICE_TDR-019_49.pdf used on input line 73.
  [6
 
  <./images/ALICE_TDR-019_49.pdf>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 97.
+LaTeX Font Info:    Try loading font information for U+msa on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 97.
+LaTeX Font Info:    Try loading font information for U+msb on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 97.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 99.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <5> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 97.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 99.
  [7
 
 ]
-<images/pg_0005.pdf, id=139, 1027.84pt x 770.88pt>
-File: images/pg_0005.pdf Graphic file (type pdf)
- <use images/pg_0005.pdf>
-Package pdftex.def Info: images/pg_0005.pdf used on input line 104.
-(pdftex.def)             Requested size: 299.99771pt x 220.01898pt.
-
-Overfull \vbox (18.34879pt too high) detected at line 104
- []
-
-[8
-
- <./images/pg_0005.pdf>] (./SAIP2016-ALICEMUONSoftwareForRun3.toc) [9
+(./SAIP2016-ALICEMUONSoftwareForRun3.toc) [8
 
 ]
-<images/pg_0022.pdf, id=189, 1027.84pt x 770.88pt>
+<images/pg_0005.pdf, id=148, 1027.84pt x 770.88pt>
+File: images/pg_0005.pdf Graphic file (type pdf)
+ <use images/pg_0005.pdf>
+Package pdftex.def Info: images/pg_0005.pdf used on input line 109.
+(pdftex.def)             Requested size: 299.99771pt x 220.01898pt.
+
+Overfull \vbox (18.34879pt too high) detected at line 109
+ []
+
+[9
+
+ <./images/pg_0005.pdf>] <images/pg_0022.pdf, id=189, 1027.84pt x 770.88pt>
 File: images/pg_0022.pdf Graphic file (type pdf)
- <use images/pg_0022.pdf>
-Package pdftex.def Info: images/pg_0022.pdf used on input line 115.
+
+<use images/pg_0022.pdf>
+Package pdftex.def Info: images/pg_0022.pdf used on input line 117.
 (pdftex.def)             Requested size: 329.87357pt x 162.75696pt.
 
-Overfull \hbox (22.5837pt too wide) in paragraph at lines 115--115
+Overfull \hbox (22.5837pt too wide) in paragraph at lines 117--117
  [] 
  []
 
@@ -1120,15 +1121,15 @@ Overfull \hbox (22.5837pt too wide) in paragraph at lines 115--115
 File: images/MuonStation1.pdf Graphic file (type pdf)
 
 <use images/MuonStation1.pdf>
-Package pdftex.def Info: images/MuonStation1.pdf used on input line 122.
+Package pdftex.def Info: images/MuonStation1.pdf used on input line 124.
 (pdftex.def)             Requested size: 401.49902pt x 301.12427pt.
 
-Overfull \hbox (94.20915pt too wide) in paragraph at lines 122--122
+Overfull \hbox (94.20915pt too wide) in paragraph at lines 124--124
  [][] 
  []
 
 
-Overfull \vbox (93.45407pt too high) detected at line 122
+Overfull \vbox (93.45407pt too high) detected at line 124
  []
 
 [11
@@ -1138,15 +1139,15 @@ Overfull \vbox (93.45407pt too high) detected at line 122
 File: images/Station1Wires.pdf Graphic file (type pdf)
 
 <use images/Station1Wires.pdf>
-Package pdftex.def Info: images/Station1Wires.pdf used on input line 130.
+Package pdftex.def Info: images/Station1Wires.pdf used on input line 132.
 (pdftex.def)             Requested size: 354.02257pt x 297.47287pt.
 
-Overfull \hbox (46.7327pt too wide) in paragraph at lines 130--130
+Overfull \hbox (46.7327pt too wide) in paragraph at lines 132--132
  [][] 
  []
 
 
-Overfull \vbox (84.32767pt too high) detected at line 130
+Overfull \vbox (84.32767pt too high) detected at line 132
  []
 
 [12
@@ -1156,7 +1157,7 @@ Overfull \vbox (84.32767pt too high) detected at line 130
 File: images/MUONSlat.pdf Graphic file (type pdf)
 
 <use images/MUONSlat.pdf>
-Package pdftex.def Info: images/MUONSlat.pdf used on input line 137.
+Package pdftex.def Info: images/MUONSlat.pdf used on input line 139.
 (pdftex.def)             Requested size: 246.68098pt x 163.81158pt.
  [13
 
@@ -1164,7 +1165,7 @@ Package pdftex.def Info: images/MUONSlat.pdf used on input line 137.
 <images/pg_0006.pdf, id=275, 1027.84pt x 770.88pt>
 File: images/pg_0006.pdf Graphic file (type pdf)
  <use images/pg_0006.pdf>
-Package pdftex.def Info: images/pg_0006.pdf used on input line 152.
+Package pdftex.def Info: images/pg_0006.pdf used on input line 154.
 (pdftex.def)             Requested size: 243.61824pt x 143.59123pt.
 
 [14
@@ -1174,11 +1175,11 @@ Package pdftex.def Info: images/pg_0006.pdf used on input line 152.
 File: images/Chapter2-2_pages_24.pdf Graphic file (type pdf)
 
 <use images/Chapter2-2_pages_24.pdf>
-Package pdftex.def Info: images/Chapter2-2_pages_24.pdf used on input line 159.
+Package pdftex.def Info: images/Chapter2-2_pages_24.pdf used on input line 161.
 
 (pdftex.def)             Requested size: 332.68304pt x 201.44504pt.
 
-Overfull \hbox (25.39317pt too wide) in paragraph at lines 159--159
+Overfull \hbox (25.39317pt too wide) in paragraph at lines 161--161
  [][] 
  []
 
@@ -1189,14 +1190,14 @@ Overfull \hbox (25.39317pt too wide) in paragraph at lines 159--159
 File: images/7TeVALICEEvent.pdf Graphic file (type pdf)
 
 <use images/7TeVALICEEvent.pdf>
-Package pdftex.def Info: images/7TeVALICEEvent.pdf used on input line 169.
+Package pdftex.def Info: images/7TeVALICEEvent.pdf used on input line 171.
 (pdftex.def)             Requested size: 267.70413pt x 197.08926pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 169.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 169.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 171.
 
-Overfull \vbox (23.0421pt too high) detected at line 169
+Overfull \vbox (23.0421pt too high) detected at line 171
  []
 
 [16
@@ -1206,10 +1207,10 @@ Overfull \vbox (23.0421pt too high) detected at line 169
 File: images/HeavyIon.pdf Graphic file (type pdf)
 
 <use images/HeavyIon.pdf>
-Package pdftex.def Info: images/HeavyIon.pdf used on input line 177.
+Package pdftex.def Info: images/HeavyIon.pdf used on input line 179.
 (pdftex.def)             Requested size: 315.63593pt x 167.85344pt.
 
-Overfull \hbox (8.34605pt too wide) in paragraph at lines 177--177
+Overfull \hbox (8.34605pt too wide) in paragraph at lines 179--179
  [][] 
  []
 
@@ -1217,15 +1218,15 @@ Overfull \hbox (8.34605pt too wide) in paragraph at lines 177--177
 
  <./images/HeavyIon.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 210.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 212.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <7> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 210.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 212.
 
 <images/bendingnonbending.pdf, id=384, 316.93407pt x 243.91125pt>
 File: images/bendingnonbending.pdf Graphic file (type pdf)
 
 <use images/bendingnonbending.pdf>
-Package pdftex.def Info: images/bendingnonbending.pdf used on input line 210.
+Package pdftex.def Info: images/bendingnonbending.pdf used on input line 212.
 (pdftex.def)             Requested size: 158.46664pt x 121.95532pt.
  [18
 
@@ -1234,34 +1235,109 @@ Package pdftex.def Info: images/bendingnonbending.pdf used on input line 210.
 
 ] [20
 
+] [21
+
 ]
-Overfull \vbox (2.6367pt too high) detected at line 235
+Overfull \vbox (2.6367pt too high) detected at line 246
  []
 
-[21
-
-] [22
+[22
 
 ] [23
 
 ] (./SAIP2016-ALICEMUONSoftwareForRun3.toc) [24
 
-] [25
-
-] [26
-
 ]
+<images/mlem_start_EVT26_DE507_CLU-1.pdf, id=434, 798.985pt x 574.145pt>
+File: images/mlem_start_EVT26_DE507_CLU-1.pdf Graphic file (type pdf)
+
+<use images/mlem_start_EVT26_DE507_CLU-1.pdf>
+Package pdftex.def Info: images/mlem_start_EVT26_DE507_CLU-1.pdf used on input 
+line 275.
+(pdftex.def)             Requested size: 119.84258pt x 86.11803pt.
+
+<images/mlem_start_EVT26_DE617_CLU-1.pdf, id=435, 798.985pt x 574.145pt>
+File: images/mlem_start_EVT26_DE617_CLU-1.pdf Graphic file (type pdf)
+
+<use images/mlem_start_EVT26_DE617_CLU-1.pdf>
+Package pdftex.def Info: images/mlem_start_EVT26_DE617_CLU-1.pdf used on input 
+line 275.
+(pdftex.def)             Requested size: 119.84258pt x 86.11803pt.
+ [25
+
+ <./images/mlem_start_EVT26_DE507_CLU-1.pdf> <./images/mlem_start_EVT26_DE617_C
+LU-1.pdf>]
+<images/mlem_start_EVT26_DE801_CLU-1.pdf, id=450, 798.985pt x 574.145pt>
+File: images/mlem_start_EVT26_DE801_CLU-1.pdf Graphic file (type pdf)
+
+<use images/mlem_start_EVT26_DE801_CLU-1.pdf>
+Package pdftex.def Info: images/mlem_start_EVT26_DE801_CLU-1.pdf used on input 
+line 283.
+(pdftex.def)             Requested size: 119.84258pt x 86.11803pt.
+
+<images/mlem_start_EVT21_DE912_CLU-1.pdf, id=451, 798.985pt x 574.145pt>
+File: images/mlem_start_EVT21_DE912_CLU-1.pdf Graphic file (type pdf)
+
+<use images/mlem_start_EVT21_DE912_CLU-1.pdf>
+Package pdftex.def Info: images/mlem_start_EVT21_DE912_CLU-1.pdf used on input 
+line 283.
+(pdftex.def)             Requested size: 119.84258pt x 86.11803pt.
+ [26
+
+ <./images/mlem_start_EVT26_DE801_CLU-1.pdf> <./images/mlem_start_EVT21_DE912_C
+LU-1.pdf>]
+<images/ClusterMeanSizerPerChamber_pbpb2015.pdf, id=465, 569.12625pt x 433.62pt
+>
+File: images/ClusterMeanSizerPerChamber_pbpb2015.pdf Graphic file (type pdf)
+ <use images/ClusterMeanSizerPerChamber_pbpb2015.pdf>
+Package pdftex.def Info: images/ClusterMeanSizerPerChamber_pbpb2015.pdf used on
+ input line 292.
+(pdftex.def)             Requested size: 142.2812pt x 108.40472pt.
+
+<images/ClusterMeanSizerPerChamber_pp2016.pdf, id=466, 569.12625pt x 365.365pt>
+File: images/ClusterMeanSizerPerChamber_pp2016.pdf Graphic file (type pdf)
+<use images/ClusterMeanSizerPerChamber_pp2016.pdf>
+Package pdftex.def Info: images/ClusterMeanSizerPerChamber_pp2016.pdf used on i
+nput line 292.
+(pdftex.def)             Requested size: 170.73918pt x 109.61034pt.
+
+Overfull \hbox (5.73051pt too wide) in paragraph at lines 292--292
+ [][] 
+ []
+
 [27
 
-] [28
+ <./images/ClusterMeanSizerPerChamber_pbpb2015.pdf, page is rotated 90 degrees>
+ <./images/ClusterMeanSizerPerChamber_pp2016.pdf, page is rotated 90 degrees>]
+<images/ClusterMeanChargePerChamber_pbpb2015.pdf, id=559, 569.12625pt x 381.425
+pt>
+File: images/ClusterMeanChargePerChamber_pbpb2015.pdf Graphic file (type pdf)
+ <use images/ClusterMeanChargePerChamber_pbpb2015.pdf>
+Package pdftex.def Info: images/ClusterMeanChargePerChamber_pbpb2015.pdf used o
+n input line 301.
+(pdftex.def)             Requested size: 142.2812pt x 95.356pt.
 
+<images/ClusterMeanChargePerChamber-pp2016.pdf, id=560, 569.12625pt x 365.365pt
+>
+File: images/ClusterMeanChargePerChamber-pp2016.pdf Graphic file (type pdf)
+ <use images/ClusterMeanChargePerChamber-pp2016.pdf>
+Package pdftex.def Info: images/ClusterMeanChargePerChamber-pp2016.pdf used on 
+input line 301.
+(pdftex.def)             Requested size: 142.2812pt x 91.34102pt.
+ [28
+
+ <./images/ClusterMeanChargePerChamber_pbpb2015.pdf, page is rotated 90 degrees
+> <./images/ClusterMeanChargePerChamber-pp2016.pdf, page is rotated 90 degrees>
 ] [29
 
 ] [30
 
 ] [31
 
-] [32
+]
+[32
+
+] [33
 
 ]
 \tf@nav=\write6
@@ -1273,21 +1349,21 @@ Overfull \vbox (2.6367pt too high) detected at line 235
 \tf@snm=\write8
 \openout8 = `SAIP2016-ALICEMUONSoftwareForRun3.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 313.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 313.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
  (./SAIP2016-ALICEMUONSoftwareForRun3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 313.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 313.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
 Package rerunfilecheck Info: File `SAIP2016-ALICEMUONSoftwareForRun3.out' has n
 ot changed.
 (rerunfilecheck)             Checksum: AE877075AE5472F60F721BC4505AEC59;237.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 313.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 340.
  ) 
 Here is how much of TeX's memory you used:
- 20616 strings out of 493014
- 409941 string characters out of 6135691
- 483830 words of memory out of 5000000
- 23583 multiletter control sequences out of 15000+600000
+ 20663 strings out of 493014
+ 411813 string characters out of 6135691
+ 484830 words of memory out of 5000000
+ 23620 multiletter control sequences out of 15000+600000
  30981 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,13n,88p,1759b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1298,11 +1374,11 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
 c/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SAIP2016-ALICEMUONSoftwareForRun3.pdf (32 pages, 6964188 byte
+Output written on SAIP2016-ALICEMUONSoftwareForRun3.pdf (33 pages, 7055342 byte
 s).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
- 362 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 716 PDF objects out of 1000 (max. 8388607)
+ 450 compressed objects within 5 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

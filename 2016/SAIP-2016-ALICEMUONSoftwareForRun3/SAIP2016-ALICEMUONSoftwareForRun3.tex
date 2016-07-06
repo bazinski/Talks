@@ -94,8 +94,12 @@ Important numbers to take away :
     ZDC      &     GBT      &     &      &     1 &  CRU       &          &               1\\  \hline
     Total    &               & 21 &  38  &  8344 &            &   15     &          447\\ 
             \end{tabular}}\\
-            Muon therefore gets 5 FLP's
+            \vspace{1cm}
+            Muon therefore get 6 FLPs
 \end{frame}
+
+
+\section{ALICE Muons}
 
 \begin{frame}
 \frametitle{ALICE MUON Arm}
@@ -103,9 +107,6 @@ Important numbers to take away :
   \includegraphics[scale=0.35,trim={3cm 1cm 3cm 4cm},clip]{images/pg_0005.pdf}
   }
 \end{frame}
-
-\section{ALICE Muons}
-
 \begin{frame}
   \frametitle{ALICE MUON diagram}
 
@@ -225,7 +226,16 @@ PbPb at $\sqrt{s}$=7 TeV, 2015 \\
   \item Track Matching MCH-MID
 \end{itemize}
 \end{frame}
-
+\begin{frame}
+  \frametitle{MUON software upgrade in lieu of Run3}
+  \begin{itemize}
+    \item O(500) times faster at least
+    \item Of all computing muon are 15\% of the time spent.
+    \item 1.1-1.5s to reconstruct depending on beam.
+    \item Aim to have everything online, AOD's out.
+    \item Test in current HLT.
+  \end{itemize}
+\end{frame}
 \begin{frame}
   \frametitle{where to start}
   \begin{quote}
@@ -242,31 +252,56 @@ Donald Knuth, ACM Computing Surveys, Vol 6, No. 4, Dec. 1974 (see p.268)
   Function & \multicolumn{3}{c}{Time in \%} \\  
   & pp 16  & PbPb 11 & PbPb 15\\ \hline 
 % uncover makes advanced overlay
-Raw Data Decoding & 4 & &\\
-Raw Data Filtering & 2 & &\\
-Pre Clustring & 10 & &\\
-Clustering & 63 & & \\
-Tracking MCH & 7 & & \\
-Tracking MID & 6 & & \\
-Track matching & 8 & & \\
+Raw Data Decoding & 4 & 3&3\\
+Raw Data Filtering & 2 & 2&2\\
+Pre Clustring & 10 & 10&10\\
+Clustering & 63 & 68& 72\\
+Tracking MCH & 7 & 6&6 \\
+Tracking MID & 6 & 6&6 \\
+Track matching & 8 &5 &5 \\
 \end{tabular}\\
 \vspace{2cm}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Graphically}
-  include graphic of table.
-\end{frame}
 \section{Cluster Finder}
 
 \begin{frame}
 \frametitle{What is a cluster finder} 
-picture of a couple of clusters.
+  \center{
+  \includegraphics[scale=0.15]{images/mlem_start_EVT26_DE507_CLU-1.pdf}
+  \includegraphics[scale=0.15]{images/mlem_start_EVT26_DE617_CLU-1.pdf}
+  }
+  % mlem_start_EVT21_DE912_CLU-1.pdf  mlem_start_EVT26_DE507_CLU-1.pdf  mlem_start_EVT26_DE617_CLU-1.pdf  mlem_start_EVT26_DE801_CLU-1.pdf
+\end{frame}
+\begin{frame}
+\frametitle{What is a cluster finder} 
+  \center{
+  \includegraphics[scale=0.15]{images/mlem_start_EVT26_DE801_CLU-1.pdf}
+  \includegraphics[scale=0.15]{images/mlem_start_EVT21_DE912_CLU-1.pdf} 
+  }
+  % mlem_start_EVT21_DE912_CLU-1.pdf  mlem_start_EVT26_DE507_CLU-1.pdf  mlem_start_EVT26_DE617_CLU-1.pdf  mlem_start_EVT26_DE801_CLU-1.pdf
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cluster Mean Size per Chamber}
+  \center{
+  \includegraphics[scale=0.25]{images/ClusterMeanSizerPerChamber_pbpb2015.pdf}
+  \includegraphics[scale=0.3]{images/ClusterMeanSizerPerChamber_pp2016.pdf}
+  }
+PbPb 2015 on the left, pp 2016 on the right.
+\end{frame}
+\begin{frame}
+  \frametitle{Cluster Mean Charger per Chamber}
+  \center{
+  \includegraphics[scale=0.25]{images/ClusterMeanChargePerChamber_pbpb2015.pdf}
+  \includegraphics[scale=0.25]{images/ClusterMeanChargePerChamber-pp2016.pdf}
+  }
+
+PbPb 2015 on the left, pp 2016 on the right.
 \end{frame}
 
 \begin{frame}
   \frametitle{MLEM Algorithm}
-explain mlem
 \end{frame}
 
 \begin{frame}
@@ -279,29 +314,20 @@ explain mlem
   \frametitle{Logical Parts}
   \begin{itemize}
     \item Add Virtual pads if necessary  
-    \item Find Center of Gravity given maximal pixel
-    \item MLEM
+    \item Find Center of Gravity giving maximal pixel
+    \item MLEM until sufficiently small pixel size is achieved.
   \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Effect of not adding Virtual Pads}
-graph of radius of like clusters.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Effect of limiting the convergence to 5}
-graph of radius of like clusters.
 \end{frame}
 
 \begin{frame}
   \frametitle{Speed up}
 \begin{itemize}
-  \item look for dead code
-  \item change data or reorder to hit caches better.
-  \item get a faster cpu. sadly not going to happen
-  \item gpu x3 
+  \item look for dead code 11%
+  \item change data or reorder to hit caches better. 5%
+  \item get a faster cpu. sadly not going to happen 
+  \item gpu x3, but 4 nested dependent loops
   \item fpga - try to avoid.
+  \item do something completely different.
 \end{itemize}
 Performed on a i7 with nvidia gtx 980, will have to be repeated on other hardware.
 \end{frame}

@@ -1,6 +1,6 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{ALICE}{2}{0}{1}
 \beamer@sectionintoc {2}{O2 and Run3}{4}{0}{2}
-\beamer@sectionintoc {3}{ALICE Muons}{9}{0}{3}
+\beamer@sectionintoc {3}{ALICE Muons}{8}{0}{3}
 \beamer@sectionintoc {4}{Current MUON Software}{19}{0}{4}
 \beamer@sectionintoc {5}{Cluster Finder}{24}{0}{5}
