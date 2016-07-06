@@ -2,7 +2,7 @@
 
 % for themes, etc.
 \mode<presentation>
-{ \usetheme{Torino} }
+{ \usetheme{metropolis} }
 %{ \usetheme{boxes} }
 
 \usepackage{times}  % fonts are up to you
@@ -11,6 +11,7 @@
 % these will be used later in the title page
 \title{CHPC WLCG Tier2 Facility}
 \author{Sean Murray \\
+    ALICE \\
     CHPC \\
     CSIR 
 }
@@ -45,13 +46,24 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{July 2015}
-
+\frametitle{WLCG MOU Signed}
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+  \includegraphics[scale=0.45]{CHPCLogo.pdf}
+  \includegraphics[scale=0.45]{WLCGLogo.pdf}
+\end{column}%
+\begin{column}{.48\textwidth}
+  \centering{
+\includegraphics[scale=0.45]{WLCG-MOU_Signing.pdf}
+} 
+\end{column}%
+\end{columns}  
+\centering{28 April 2015}
 \end{frame}
 
 \begin{frame}
 \frametitle{Commitments}
-
+https://wlcg-rebus.cern.ch/apps/pledges/resources/
 \end{frame}
 
 \begin{frame}
@@ -62,62 +74,147 @@ storage
 network
 \end{frame}
 
-\section{Three pillars}
-
-\begin{frame}
-\frametitle{Weird Problems}
-
-pic of network from 27 june where the jobs reduce and network cleans up, additionally the over consumption of the network and the associated job errors.
-
-\end{frame}
-
 \begin{frame}
   \frametitle{Current hardware}
-  50 nodes of 48 cores 192GB RAM and 1.6TB of SSD, 1G ethernet
-  34 nodes of 48 cores 96GB RAM and 1TB, infiniband
+  \begin{itemize}
+    \item 50 nodes of 48 cores 192GB RAM and 1.6TB of SSD, 1G ethernet
+    \item 34 nodes of 48 cores 96GB RAM and 1TB, FDR infiniband, 6 ``stolen''
+    \item 100TB of Lustre on the 34 nodes with FDR infiniband.
+    \item 9 management servers, lower spec 
+  \begin{itemize}
+    \item compute element (head node,ce),
+    \item storage element 2 redirectors, 2 storage nodes with direct attached multipath storage
+    \item authentication, user interface (gone), monitoring, provisioning. 
+  \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Current Storage}
-  348TB EOS for ALICE
-  252 TB EOS for ATLAS
-  107 TB lustre for 34 nodes.
+  \begin{itemize}
+    \item 348TB EOS for ALICE
+    \item 252 TB EOS for ATLAS
+    \item 107 TB lustre for 34 nodes.
+    \item 104 TB EMC for ATLAS, dead.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Current Performance}
-
+147k processes
 \end{frame}
 
 \begin{frame}
   \frametitle{Availability / Reliability}
-  wlcg, egi, alice, atlas, chpc(zabbix/grafana).
+  So who monitors us :
+  \begin{itemize}
+    \item WLCG
+    \item EGI
+    \item ALICE
+    \item ATLAS
+    \item me via zabbix/grafana and AAROC slack channel.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Grafana ALICE}
+  \includegraphics[]{}
+  This is currently being expanded to pull in more from MonaLisa.
+\end{frame}
+
+\begin{frame}
+\frametitle{Problems}
+It has not been an easy 4 months.
+\begin{itemize}
+  \item [17 Mar] Switch dies, kills everything, Thursday evening of course, redundancy ?
+  \item [14 Apr] disk dies, 15/16 April rebuild fails.
+  \item [21May] Site Power upgrade whole weekend.
+  \item [22 Jun] General Power failure
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data Traffic 6 July}
+  \centering{
+  \includegraphics[scale=0.25]{wacsinmidjun.pdf}\\
+  \includegraphics[scale=0.25]{seacomoutmidjun.pdf}
+  }
 \end{frame}
 
 \begin{frame}
   \frametitle{upgrades}
-  puppify, stabilise, collaborate with aaroc.
+  \begin{itemize}
+    \item Puppify, to auto site deployment, r10k an issue.
+    \item Transition to foreman from xcat.
+    \item Fix ATLAS Storage (reinstall)
+    \item upgrade monitoring server centos7 with zabbix 3 and new grafana to technical reasons.
+    \item Rewire do network, redo power to monitored pdu, monitor all.
+    \item add inherent redundancy into 10G interfaces on ce,se,se2, cables hanging loose.
+    \item Reinstall while TRYING to keep A/R. problems are vobox and ce. 
+    \item Storage, we need an additional 750TB for ALICE and ATLAS.
+  \end{itemize}
 \end{frame}
+\begin{frame}
+  \frametitle{Transparency}
+  Historically this has not been great, so \ldots
+  \begin{itemize}
+    \item Federated logins to zabbix and grafana, i.e. You
+    \item All code on github in line with AAROC
+    \item All issues PUBLIC on github
+    \item Still have GGUS for normal tickets.
+    \item Some training on the user analysis facility (hopefully online)
+    \item A couple of things remain private like network diagrams, obviously, and passwords.
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \includegraphics[scale=0.25]{ALICEProcessing-Grafana.pdf}
+  \includegraphics[scale=0.25]{ATLASProcessing-Grafana.pdf}
+  \includegraphics[scale=0.25]{Server50-Grafana.pdf}
+  \includegraphics[scale=0.25]{GrafanaMenu.pdf}
+\end{frame}
+
 
 \section{SAGrid, user analysis}
 \begin{frame}
-\frametitle{PROOF}
-\ldots\ldots\ldots\ldots
+\frametitle{28 nodes}
+I got the go ahead 3 weeks ago to claim 28 of the 34 nodes back for sagrid and HEP user analysis.
+\begin{itemize}
+  \item Go back to sagrid to support anybody on sagrid VO.
+  \item hep user analysis, based on federated identities, no user account admin.
+  \item code based on CODE-RADE, or LHC experiments.
+  \item Local Storage for users, eos and lustre.
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{SAGrid and AAROC}
-\ldots\ldots\ldots\ldots
+\frametitle{AAROC and SAGrid}
+A collaboration spanning Africa and Arabia.\\
+Eveything is on github under AAROC.\\
+Share the resources of a massively disparate collection of computing resources transparently to the user.\\
+Idea of a automated site, via sound deployment tools.
 \end{frame}
 
 \section{Tier1}
 
 \begin{frame}
-\frametitle{Technical Requirements} 
-
+\frametitle{Tier 1 Technical Requirements} 
+Its a long list but first and foremost :\\
+\begin{quote}
+  \centering{
+  \huge{A STABLE, RELIABLE Tier 2}}\\
+\end{quote}
+The criticality of that can not be under estimated.
 \end{frame}
 
+\begin{frame}
+  \frametitle{Tier 1 SLA}
+  \begin{itemize}
+    \item 99\uptime with beam on.
+    \item 4 hour response to failures or degraded service.
+    \item 
+  \end{itemize}
+\end{frame}
 \begin{frame}
 \frametitle{People Requirements} 
 24x7 operation.
@@ -129,4 +226,4 @@ meetings, meetings, meetings.
 
 
 \end{document}
-
+(

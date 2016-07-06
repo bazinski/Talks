@@ -56,8 +56,8 @@ We will not go into depth, this is a whole other presentation.
 Important numbers to take away :
 \begin{itemize}
   \item 50kHz event rate.
-  \item 1.1 TB/s agregate data rate, spikes upto 15.
-  \item continuous read out for most detectors, tpc and muon sharing electronics.
+  \item 1.1 TB/s aggregate data rate.
+  \item continuous read out for most detectors, TPC and MUON joint chip design.
   \item Completely new framework.
   \item merge HLT, data acquisition and offline into 1 code base and platform.
   \item calibration and reconstruction online.
@@ -239,7 +239,7 @@ PbPb at $\sqrt{s}$=7 TeV, 2015 \\
 \begin{frame}
   \frametitle{where to start}
   \begin{quote}
-\small{There is no doubt that the grail of efficiency leads to abuse. Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97\% of the time: premature optimization is the root of all evil.
+\small{There is no doubt that the grail of efficiency leads to abuse. Programmers waste enormous amounts of time thinking about, or worrying about, the speed of non-critical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97\% of the time: premature optimization is the root of all evil.
 Yet we should not pass up our opportunities in that critical 3\%. A good programmer will not be lulled into complacency by such reasoning, he will be wise to look carefully at the critical code; but only after that code has been identified.}  
   \end{quote}
 Donald Knuth, ACM Computing Surveys, Vol 6, No. 4, Dec. 1974 (see p.268)
@@ -252,11 +252,11 @@ Donald Knuth, ACM Computing Surveys, Vol 6, No. 4, Dec. 1974 (see p.268)
   Function & \multicolumn{3}{c}{Time in \%} \\  
   & pp 16  & PbPb 11 & PbPb 15\\ \hline 
 % uncover makes advanced overlay
-Raw Data Decoding & 4 & 3&3\\
-Raw Data Filtering & 2 & 2&2\\
-Pre Clustring & 10 & 10&10\\
+Raw Data Decoding & 4 & 3&1\\
+Raw Data Filtering & 2 & 2&1\\
+Pre Clustering & 10 & 10&10\\
 Clustering & 63 & 68& 72\\
-Tracking MCH & 7 & 6&6 \\
+Tracking MCH & 7 & 6&5 \\
 Tracking MID & 6 & 6&6 \\
 Track matching & 8 &5 &5 \\
 \end{tabular}\\
@@ -283,7 +283,7 @@ Track matching & 8 &5 &5 \\
 \end{frame}
 
 \begin{frame}
-  \frametitle{Cluster Mean Size per Chamber}
+  \frametitle{Cluster Mean Size per Chamber PbPb}
   \center{
   \includegraphics[scale=0.25]{images/ClusterMeanSizerPerChamber_pbpb2015.pdf}
   \includegraphics[scale=0.3]{images/ClusterMeanSizerPerChamber_pp2016.pdf}
@@ -301,31 +301,50 @@ PbPb 2015 on the left, pp 2016 on the right.
 \end{frame}
 
 \begin{frame}
-  \frametitle{MLEM Algorithm}
+  \frametitle{Maximum Likelihood - expectation maximization (MLEM) Algorithm} 
+  Used extensively in medical imaging, particularly PET scanners.
+  \center{
+  \includegraphics[scale=0.25]{images/MlemIterRecon.pdf}
+  }
 \end{frame}
 
 \begin{frame}
   \frametitle{MLEM }
-
+  \begin{equation}
+    \lambda^{k+1}_j = \frac{\lambda_j^k}{\sum_i^m C_{ij}}\sum^m_i\frac{C_{ij}}{\sum^m_jC_{ij}\lambda_j^k}
+  \end{equation}
+  \begin{itemize}
+    \item $\lambda_j^k$ value of reconstructed charge at $j$ for $k^{th}$ iteration
+    \item $y_i$ measured projection data at $i$-th bin
+    \item $C_{ij}$ detection probability pixel $j$ to projection bin $i$. The overlapping area pads and pixels in our case.
+  \end{itemize}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Logical Parts}
-  \begin{itemize}
-    \item Add Virtual pads if necessary  
-    \item Find Center of Gravity giving maximal pixel
+  \begin{enumerate}
+    \item Add Virtual pads if necessary, smooth out holes.
     \item MLEM until sufficiently small pixel size is achieved.
+    \item Find Center of Gravity around maximal pixel
+    \item loop back with smaller and smaller pixels
+    \item Remove Pixels with low signal or visibility, preserving charge to nearest neighbor.
+    \item MLEM algorithm again.
+  \end{enumerate}
+  MLEM :
+  \begin{itemize}
+      \item 4 way nested dependent loops.
   \end{itemize}
 \end{frame}
+
 
 \begin{frame}
   \frametitle{Speed up}
 \begin{itemize}
-  \item look for dead code 11%
-  \item change data or reorder to hit caches better. 5%
+  \item look for dead code 11\% (Finding nearest neighbor)
+  \item change data or reorder to hit caches better. 5\%
   \item get a faster cpu. sadly not going to happen 
-  \item gpu x3, but 4 nested dependent loops
+  \item gpu 30\%, but 4 nested dependent loops
   \item fpga - try to avoid.
   \item do something completely different.
 \end{itemize}
@@ -334,7 +353,7 @@ Performed on a i7 with nvidia gtx 980, will have to be repeated on other hardwar
 
 \begin{frame}
 \frametitle{Something else}
-Look at the physics, and figure out a way to optimise based on the physics \ldots
+At this stage now.
 \end{frame}
 
 \end{document}
