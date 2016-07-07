@@ -113,8 +113,9 @@ https://wlcg-rebus.cern.ch/apps/pledges/resources/
     \item 383TB EOS for ALICE, down from 440TB
     \item 252 TB EOS for ATLAS, down from 400TB
     \item 107 TB lustre for 34 nodes.
-    \item 104 TB EMC for ATLAS, dead.
+    \item 104 TB EMC for ATLAS, not going to be used.
   \end{itemize}
+Reduction in data sizes is due to reorganisation for reliability.
 \end{frame}
 
 
@@ -123,8 +124,11 @@ https://wlcg-rebus.cern.ch/apps/pledges/resources/
 \begin{itemize}
   \item 465k ALICE jobs in last year
   \item Avg concurrent jobs 704.
-  \item ALICE 358TB storage live 17 June
+  \item ALICE 358TB storage properly live 24 June, Consumed 6.4TB 
+  \item Data traffic consumed 70TB in and 60TB out in the last 3 months
+  \item 11MB/s in and 7.5MB/s
 \end{itemize}
+
 \end{frame}
 
 \begin{frame}
@@ -137,25 +141,39 @@ https://wlcg-rebus.cern.ch/apps/pledges/resources/
     \item ATLAS
     \item me via zabbix/grafana and AAROC 
   \end{itemize}
-
+There are a lot of eyes, ignoring the ones in this room.\\
+\vspace{0.5cm}
+\centering{
+\begin{tabular}{|c|r|r|r|}
+  Function     &  May & April & March \\ \hline 
+  Availability &   90   &  97     & 91\\ \hline
+  Reliability  &  100    &  90     & 90\\ \hline
+\end{tabular}
+}\\
+\vspace{0.5cm}
+Problems in monitoring infrastructure in June, pending recalculation.
 \end{frame}
 
 \begin{frame}
   \frametitle{Grafana ALICE}
+  \centering{
   \includegraphics[scale=0.25]{ALICEProcessing-Grafana.pdf}
-  This is currently being expanded to pull in more from MonaLisa.
+  }\\
+  This is currently being expanded to pull in more from MonaLisa, and more experiment and storage specific
+  metrics to help to trivialy diagnose and forewarn problems.
 \end{frame}
 
 \begin{frame}
 \frametitle{Problems}
-It has not been an easy 4 months.
+It has not been an easy 4 months, the big ones are :
 \begin{itemize}
-  \item [17 Mar] Switch dies, kills everything, Thursday evening of course, redundancy ?
-  \item [14 Apr] disk dies, 15/16 April rebuild fails.
+  \item [17 Mar] Switch dies, kills everything, 4 days
+  \item [14 Apr] disk dies, 15/16 April rebuild fails, 109TB of empty space lost.
   \item [21May] Site Power upgrade whole weekend.
-  \item [22 Jun] General Power failure
+  \item [22 Jun] General Power failure, storage out for 2 days, SAM tests in unknown for 1 week.
 \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Our Data's Scenic Tour}
   \centering{
@@ -171,6 +189,20 @@ It has not been an easy 4 months.
 \end{frame}
 
 \begin{frame}
+  \frametitle{Improvements}
+  Since my epoch \ldots
+  \begin{itemize}
+    \item Fixed ALICE error rates, mostly.
+    \item ALICE concurrent jobs from 700 to 1500.
+    \item max out bandwidth now regularly.
+    \item ATLAS running pilot jobs. 
+    \item Storage cleaned up.
+    \item New storage quoting
+    \item Plan in place to overhaul, and being tested.
+  \end{itemize}
+
+\end{frame}
+\begin{frame}
   \frametitle{upgrades}
   \begin{itemize}
     \item attempts to delay till CC7 validation have failed.
@@ -178,7 +210,7 @@ It has not been an easy 4 months.
     \item Transition to foreman from xcat.
     \item Fix ATLAS Storage (reinstall)
     \item upgrade monitoring server to zabbix3 and new grafana to technical reasons.
-    \item Rewire whole network, repower to monitored pdu, and monitor all.
+    \item Rewire whole network, re-power to monitored pdu, and monitor all.
     \item Add inherent redundancy into 10G interfaces on ce,se,se2.
     \item Reinstall while TRYING to keep A/R. problems are vobox and ce. 
     \item Storage, we need an additional 750TB for ALICE and ATLAS.
@@ -214,9 +246,9 @@ It has not been an easy 4 months.
 \section{SAGrid, user analysis}
 \begin{frame}
 \frametitle{28 nodes}
-I got the go ahead 3 weeks ago to claim 28 of the 34 nodes back for sagrid and HEP user analysis.
+I got the go ahead 3 weeks ago to claim 28 of the 34 nodes back for SAGrid and HEP user analysis.
 \begin{itemize}
-  \item Go back to sagrid to support anybody on sagrid VO.
+  \item Go back to SAGrid to support anybody on SAGrid VO.
   \item hep user analysis, based on federated identities, no user account admin.
   \item code based on CODE-RADE, or LHC experiments.
   \item Local Storage for users, eos and lustre.
@@ -228,7 +260,7 @@ I got the go ahead 3 weeks ago to claim 28 of the 34 nodes back for sagrid and H
 \frametitle{AAROC and SAGrid}
 \begin{itemize}
   \item A collaboration spanning Africa and Arabia.\\
-  \item Eveything is on github under AAROC.\\
+  \item Everything is on github under AAROC.\\
   \item Share the resources of a massively disparate collection of computing resources transparently to the user.\\
   \item Idea of a automated site, via sound deployment tools, and constant integration.
 \end{itemize}
@@ -238,10 +270,11 @@ I got the go ahead 3 weeks ago to claim 28 of the 34 nodes back for sagrid and H
 
 \begin{frame}
 \frametitle{Tier 1 Technical Requirements} 
-Its a long list but first and foremost :\\
+Its a long list, I wont bore you or me with the intricate details of the MOU.\\
+First and foremost :\\
 \begin{quote}
   \centering{
-  \visible<2->{  \huge{A STABLE, RELIABLE Tier2}}}\\
+  \visible<2->{  \huge{A STABLE, RELIABLE \\PROVEN Tier2}}}\\
 \end{quote}
 \visible<2->{The criticality of that can not be under estimated.}
 \end{frame}
@@ -251,31 +284,39 @@ Its a long list but first and foremost :\\
 \begin{itemize}
   \item Custodial storage of raw data.
   \item O(10k) cores
-  \item single digit petabytes storage
+  \item single digit PB disk
+  \item single digit PB online Tape library, custodial raw data.
   \item redundant links on LHCOPN (light paths to cern) 10Gbps.
 \end{itemize}
 This is the easy part its just a question of money.\\
-The human and process requirements are more onnerous.
+The human and process requirements are more onerous.
 \end{frame}
 
 \begin{frame}
   \frametitle{Tier 1 SLA}
   \begin{itemize}
-    \item 99\% uptime with beam on.
-    \item 4 hour response to failures or degraded service.
-    \item  
+    \item 99\% uptime when beam on.
+    \item 4 hour response to failures or degraded service (20\%).
+    \item A long term commitment to be a tier1. 
+    \item 12 h max delay to responding to operational problems.
+    \item 12 h for network degradation (20\%)
   \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{People Requirements} 
-24x7 operation.
-storage, hpc, support.
-operators on call.
-wlcg membership
-meetings, meetings, meetings.
+\begin{itemize}
+  \item 24x7 operation.
+  \item storage specific experts
+  \item experiment specific experts
+  \item tiered support.
+  \item operators on call.
+  \item wlcg membership, meetings, meetings, meetings.
+\end{itemize}
 \end{frame}
+
 \section{Backup Slides}
+
 \begin{frame}
   \frametitle{LHCOPN}
   \centering{
@@ -283,5 +324,15 @@ meetings, meetings, meetings.
   }
 \end{frame}
 
+\begin{frame}
+  \frametitle{IOU table}
+  \includegraphics[scale=0.51,trim={1cm 5cm 1cm 18cm},clip]{mou_page23.pdf}\\
+  \includegraphics[scale=0.51, trim={1cm 10cm 1cm 2cm},clip]{mou_page24.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{mou table}
+  \includegraphics[scale=0.5, trim={1cm 7cm 1cm 11cm},clip]{mou_page25.pdf}
+\end{frame}
+
 \end{document}
-(
