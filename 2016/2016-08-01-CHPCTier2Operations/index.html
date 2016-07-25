@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ALICE MUON Clusterfinder</title>
+
+		<meta name="description" content="A thesis update">
+		<meta name="author" content="Sean Murray/@bazinski">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal theme-font-sketch theme-color-cobalt-orange">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>ALICE MUON Cluster finder</h1>
+					<h3>Thesis update</h3>
+					<p>
+						<small>Created by <a href="http://bazinski.github.io">Sean Murray</a> / <a href="http://twitter.com/bazinski">@bazinski</a></small>
+					</p>
+				</section>
+        <section>
+          <h2>Nominal pp event </h2>
+          <img src='https://inspirehep.net/record/889158/files/ppalice.png' alt='pp event from ALICE' style="width: auto; height: auto;max-width: 520px;max-height: 400px"/>
+          <p>Nucl.Phys. A862-863 (2011) 223-230 arXiv:1102.2071 </p>
+        </section>
+        <section>
+          <h2>Nominal PbPb event </h2>
+          <img src='http://irfu.cea.fr/Images/astImg/2957_2.png' alt='pp event from ALICE' /> <!--style="width: auto; height: auto;max-width: 620px;max-height: 500px"/> -->
+        </section>
+        <section>
+          <h2>O2 upgrade</h2>
+          <img src="images/o2-hardware.png" />
+        </section>
+		<section>
+      <section>
+					<h2>MUON Reconstruction</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Operation</th>
+								<th>Relative Time [%]</th>
+								<th>notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>raw data decoding</td>
+								<td>4</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>raw data filtering</td>
+								<td>2</td>
+								<td>?</td>
+							</tr>
+							<tr>
+								<td>Pre Clustering</td>
+								<td>10</td>
+								<td>after fixup</td>
+							</tr>
+							<tr>
+								<td>Clustering</td>
+								<td>63</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Tracking</td>
+								<td>7</td>
+								<td>?</td>
+							</tr>
+							<tr>
+								<td>MID Tracking</td>
+								<td>6</td>
+								<td>?</td>
+							</tr>
+							<tr>
+								<td>MCH-MID Matching</td>
+								<td>8</td>
+								<td>?</td>
+							</tr>
+						</tbody>
+					</table>
+      </section>
+          <section>
+            <canvas class="stretch" data-chart="bar">
+datadecoding
+data decoding, 4
+data filtering, 2
+pre clustering, 10
+clustering, 63
+MCH Tracking, 7
+MID Tracking, 6
+Track Matching, 8
+<!-- 
+{
+"data" : {
+"datasets" : [{ "backgroundColor": "#0f0" }, { "backgroundColor": "#0ff" } ]
+},
+"options": { "responsive": true, "scales": { "xAxes": [{ "stacked": true }], "yAxes": [{ "stacked": true }] } }
+}
+-->
+				</canvas>
+        This needs to be done across runs and datasets, pp(lhc16h above) and pbpb and error bars.
+          </section>
+				</section>
+
+				<section data-background-transition="slide">
+					<h2>Why do we care</h2>
+					<p>
+          We all love cluster finding, its the most critical part of the experiment. 
+					</p>
+          <p>
+          O2 requires online to have physics quality. Offline must move to online.
+          </p>
+          <p>
+          MUON needs c. 100x speed up.
+          </p>
+				</section>
+
+				<!-- nested vertical slides -->
+				<section>
+					<section data-background-transition="convex">
+            <h2>Maximum Likelihood Expectation Maximization (MLEM)</h2>
+						<p>Current cluster finder algorithm of choice.</p>
+						<p>Used heavily in medical imaging.</p>
+            <p>Originally tuned for 8k particles in each event but we only have 2k. </p>
+					</section>
+					<section>
+						<h2>The basic Algorithm</h2>
+						<p>An (EM) algorithm is an iterative method for finding maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved latent variables. The EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step. These parameter-estimates are then used to determine the distribution of the latent variables in the next E step.
+            </p>
+					</section>
+					<section>
+						<h2>MLEM</h2>
+						<p>Expectation step (E step) : the formula expressing the likelihood of any reconstructed cluster given the measured data is formed (Poisson noise)</p>
+            <p>Maximisation step (M step) : the cluster elements that has the greatest probability to give the measured data is found.</p>
+					</section>
+        <section>
+          <ol>
+            <li>various sundry optimisations std cpu to gpu</li>
+            <li>projection and backprojection pipelined.</li>
+          </ol>
+          <p>Currently x3 speed, have not bothered to extend to physics, its too poor as it is, in search of another x97.</p>
+        </section>
+        <section>
+          <h3> adding pads</h3>
+          <ol>
+            <li>precluster kind of like a threshold, providing array of active pads</li>
+            <li>precluster provides array of</li>
+            <li>find regions of interest for clusters</li>
+            <li>Add virtual pads if neccessary ?? Somehow critical</li>
+            <li>Is cluster splittable</li>
+            <li>loop on mlem reducing pixel size until sufficiently small, see performance of loop iteration per data dataset. REDO graphs</li>
+            <li> calc COG </li> 
+            <li> move to tracking </li>
+            </ol>
+        </section>
+        <section>
+          <h2> Function in question </h2>
+          <pre><code class="c++" data-trim contenteditable>
+          //_____________________________________________________________________________
+Bool_t AliMUONClusterFinderMLEM::MainLoop(AliMUONCluster& cluster, Int_t iSimple)
+{
+  /// Repeat MLEM algorithm until pixel size becomes sufficiently small
+  
+.............
+  
+  AddVirtualPad(cluster); // add virtual pads if necessary
+  
+  Int_t npadTot = cluster.Multiplicity();
+............
+}
+          </code></pre>
+          <pre><code class="c++" data-trim contenteditable>
+          //_____________________________________________________________________________
+void AliMUONClusterFinderMLEM::AddVirtualPad(AliMUONCluster& cluster)
+{
+  /// Add virtual pad (with small charge) to improve fit for clusters
+  /// with number of pads == 2 per direction
+.........
+}
+          </code></pre>
+          250 lines of code ...
+        </section>
+				</section>
+				<section id="algooptions">
+          <h2> The Options </h2>
+          <p>
+          What are the options
+					</p>
+          <p class="fragment"> Optimise current algorithm</p>
+          <p><span class="fragment">Merge tracking and clustering reject bad clusters</span></p>
+          <p><span class="fragment">Modify current Algorithm (gpu/fpga)</span></p>
+          <p><span class="fragment">New algorithm</span></p>
+          <p><span class="fragment">Merge tracking and clustering</span></p>
+				</section>
+
+				<section id="algooptions">
+          <h2> New Algorithm, Other detectors </h2>
+          <p>
+          Why be brave, see what the other detectors did
+					</p>
+          <p> TPC very very different, tried but no</p>
+          <p>ITS does not port to us</span></p>
+				</section>
+				
+        <section id="algooptions">
+          <h2> Start from scratch </h2>
+          <p>
+          Currently here, learning machine learning, and playing around.
+					</p>
+          <p>
+          Building a pipeline of custom offline code to do reconstruction from raw to aod to analysis, 1600 cores at chpc.
+          </p>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>TO DO</h1>
+					<ol>
+						<li>Get RAW data of previous analyses.</li>
+						<li>Newer GPU for new compute engines.</li>
+						<li>Alternative Machine Learning.</li>
+            <li>Investigate the combined Tracking/Clustering option</li>
+            <li>redo performance graphs that are missing, code in git, just replay</li>
+					</ol>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/chart/Chart.min.js' },
+          { src: 'plugin/chart/csv2chart.js' },
+          { src: 'plugin/chalkboard/chalkboard.js' }
+				],
+           chart: {
+      defaults: { 
+          global: { 
+              title: { fontColor: "#FFF" }, 
+          }, 
+            legend: {
+                labels: { fontColor: "#FFF" },
+            },
+            scale: { 
+                scaleLabel: { fontColor: "#FFF" }, 
+                gridLines: { color: "#FFF", zeroLineColor: "#FFF" }, 
+                ticks: { fontColor: "#FFF" }, 
+            } 
+        },
+        line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ]}, 
+        bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+        pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+        radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+    },
+               keyboard: {
+        67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+        66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+        46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+         8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+        68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+    },
+             
+
+      });
+
+		</script>
+
+	</body>
+</html>
