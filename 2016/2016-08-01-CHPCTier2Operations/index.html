@@ -88,19 +88,104 @@
 						<h2>Foreman</h2>
 						<p>
 					<ul>
-            <li>The Foreman a tool for complete life cycle systems management tool for provisioning, configuring and monitoring of physical and virtual servers. </li>
-            <li>Foreman has deep integration to configuration management software [Puppet, Chef, Salt, etc. ] through plugins, allowing one to automate repetitive tasks, deploy applications, and manage change to deployed servers.</li>
-            <li>Foreman provides provisioning on bare-metal (through managed DHCP, DNS, TFTP, and PXE-based unattended installations), virtualization and cloud. </li>
+            <li>The Foreman a tool for complete life cycle systems management tool for provisioning, configuring and monitoring of physical servers or others. </li>
+            <li>Foreman has deep integration to configuration management software [Puppet, Chef, Salt, etc. ] </li>
+            <li>allowing one to automate repetitive tasks, deploy applications, and manage change to deployed servers.</li>
             <li>Foreman provides comprehensive, auditable interaction facilities including a web frontend, a command line interface, and a robust REST API.</li>
 					</ul>
+          We deploy and then hand over to puppet. <a href="http://xcat01.chpc.ac.za">foreman</a>
 					</section>
 					<section>
 						<h2>Puppet</h2>
-						<p>That's it, time to go back up.</p>
+						<p>Configuration management system for entire systems and more.</p>
+            <ul>
+              <li>Manage required software</li>
+              <li>Manage specific files</li>
+              <li>Manage operating system up, firewall, sysctl etc. to ssh, apache, postgresql, motd, and users.</li>
+            </ul>
+            Github for <a href="http://github.com/AAROC/">AAROC</a> and <a href="http://github.com/chpchep">chpchep</a>
 						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
+					</section>
+          <section>
+            <h2>Puppet 2</h2>
+            Domain Speicific Language
+					</section>
+          <section>
+            <h2>Puppet 2</h2>
+					<pre><code class="puppet" data-trim contenteditable>
+            node /^gnode-1-\d+\.chpc\.ac\.za$/ inherits hepcompute{
+              # perl-time-hires
+              # nagios-plugins-perl
+                zabbix::userparameters { 'userparameter_sockstat.conf':
+                script => 'puppet:///modules/zabbix/userparameter_sockstat.conf',
+                script_dir => '/etc/zabbix/zabbix_agentd.d/',
+                } 
+              }
+              </code></pre>
+					</section>
+          <section>
+            <h2>Puppet Hiera</h2>
+					<pre><code class="yaml" data-trim contenteditable>
+            ---
+            :backends:
+              - yaml
+              :yaml:
+                :datadir: "/etc/puppet/environments/%{environment}/hieradata"
+                :hierarchy:
+                  - "%{clientcert}"
+                  - "nodes/%{clientcert}"
+                  - common
+                  - global
+
+                        :yaml:
+                :datadir:
+					</code></pre>
+            Its just a keyvalue store for lookups triggered from puppet.
+						<aside class="notes">
+							Multiple backends, files, ldap, db, encrypted yaml.. Could have OS then be able to define different package names for example.
+						</aside>
+
+					</section>
+          <section>
+            <h2>Puppet Hiera 2</h2>
+                                      <pre><code class="puppet" data-trim contenteditable>
+            node "grid-bdii.chpc.ac.za" {
+                class { "ntp":
+                    servers    => [ 'grid-vobox.chpc.ac.za iburst','foreman01.chpc.ac.za iburst'],
+                    autoupdate => true,
+                    restrict   => [],
+                    enable     => true,
+                    } }
+					</code></pre>
+                                      <pre><code class="puppet" data-trim contenteditable>
+            node "grid-bdii.chpc.ac.za" {
+                    include ntp
+                    } 
+					</code></pre>
+          the parameters for ntp puppet class are resolved through hiera lookups.
+					</section>
+          <section>
+            <h2>Puppet Hiera 3</h2>
+            Then in /etc/...../nodes/grid-bdii.yaml
+                                      <pre><code class="yaml" data-trim contenteditable>
+classes: ntp
+ntp::restrict:
+  -
+  ntp::autoupdate: false
+  ntp::enable: true
+  ntp::servers:
+    - grid-vobox.chpc.ac.za iburst
+    - foreman01.chpc.ac.za iburst
+
+					</code></pre>
+					</section>
+          <section>
+            <h2>Puppet R10k</h2>
+            A method of "automatically" mapping various sources of puppet modules/manifests, into ones puppet environments.
+					</section>
+          <section>
+            <h2>Puppet respect</h2>
+                unit testing currently in testing (Oh the irony)
 					</section>
 				</section>
         <section>
@@ -129,12 +214,11 @@
           </section>
           <section>
             <h2> zabbix </h2>
+            open it
           </section>
           <section>
             <h2> grafana </h2>
-          </section>
-          <section>
-            <h2> racktables </h2>
+            open it
           </section>
           <section>
             <h2>MONALisa </h2>
@@ -142,20 +226,27 @@
             sites. <br>
             This extends from high level physics simulations to batch system and all the way down to  memory and socket counts on nodes, from the moment the data leaves the daq at P2.
             Each site has its own dedicated MONALisa agent instance in a VOBOX.<br>
-            The vobox is also where the jobs are sent into the clusters, and is a MonaLISA agent..<br>
+            The vobox is also where the jobs are sent into the clusters<br>
             One can register in central services for various alerts.<br>
             DEMO <a href="http://alimonitor.cern.ch/" >MonaLisa.</a>
+						<aside class="notes">
+						  Go down the left menu.
+						</aside>
           </section>
           <section>
             <h2>SAMS </h2>
             Experiment funcational testing and uptime monitoring.<br>
             These results are used for calculations relative to REBUS.
+
           </section>
           <section>
             <h2>ATLAS </h2>
+            They want to migrate away from 3 different storage types and standardise as ALICE on xrootd/eos, so we are the guinea pigs...
           </section>
           <section>
             <h2>WLCG/EGI</h2>
+            Worldwide Lhc Computing Grid, European Grid Initiative.
+
           </section>
           <section>
             <h2>GOCDB</h2>
@@ -180,6 +271,7 @@
           </section>
           <section>
             <h2> GGUS </h2>
+            Example email ...
           </section>
           <section>
             <h2> Redmine </h2>
@@ -188,6 +280,7 @@
             wiki, documents, files, per project. <br>
             numerous plugins, kanban, scrum, git repositories etc. integrated into one.<br>
             notifcations via mail, slack, irc, etc.<br>
+            vm sitting on mon01 <br>
           </section>
           <section>
             <h2> Github </h2>
@@ -205,287 +298,13 @@
           <section>
           <h2>Infrastructure management </h2>
           <h3>Rackables</h3>
-          Did have a look at Ralph as well, maybe an option as chpc grows in machine count and heterogeneity (spelling?).
-          </section>
-          <section>
-            <h2>Racktables</h2>
             Yet to integrate to Zabbix to have singular authoritive source of information<br>
             Store what is where, what is plugged into what.<br>
             Monitor maintenance contracts. <br>
             Trial install currently on mon01 <br>
+            <a href="https://mon01.chpc.ac.za/racktables">Racktables at chpc</a>
           </section>
         </section>
-        <section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
 			</div>
 
 		</div>
