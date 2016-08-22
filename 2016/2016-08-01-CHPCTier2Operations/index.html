@@ -132,11 +132,9 @@
               :yaml:
                 :datadir: "/etc/puppet/environments/%{environment}/hieradata"
                 :hierarchy:
-                  - "%{clientcert}"
                   - "nodes/%{clientcert}"
-                  - common
+                  - "hostgroups/%{hostgroup}"
                   - global
-
                         :yaml:
                 :datadir:
 					</code></pre>
@@ -166,7 +164,7 @@
 					</section>
           <section>
             <h2>Puppet Hiera 3</h2>
-            Then in /etc/...../nodes/grid-bdii.yaml
+            Then in /etc/...../nodes/grid-bdii.yaml or global.yaml
                                       <pre><code class="yaml" data-trim contenteditable>
 classes: ntp
 ntp::restrict:
