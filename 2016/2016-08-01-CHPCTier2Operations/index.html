@@ -97,7 +97,7 @@
             <ul>
               <li>Manage required software</li>
               <li>Manage specific files</li>
-              <li>Manage operating system up, firewall, sysctl etc. to ssh, apache, postgresql, motd, and users.</li>
+              <li>Manage operating system upwards, firewall, sysctl etc. to ssh, apache, postgresql, motd, and users.</li>
             </ul>
             Github for <a href="http://github.com/AAROC/">AAROC</a> and <a href="http://github.com/chpchep">chpchep</a>
 						<br>
@@ -145,7 +145,8 @@
                                       <pre><code class="puppet" data-trim contenteditable>
             node "grid-bdii.chpc.ac.za" {
                 class { "ntp":
-                    servers    => [ 'grid-vobox.chpc.ac.za iburst','foreman01.chpc.ac.za iburst'],
+                    servers    => [ 'grid-vobox.chpc.ac.za iburst',
+                                    'foreman01.chpc.ac.za iburst'],
                     autoupdate => true,
                     restrict   => [],
                     enable     => true,
@@ -165,7 +166,7 @@
 classes: ntp
 ntp::restrict:
   -
-  ntp::autoupdate: false
+  ntp::autoupdate: true
   ntp::enable: true
   ntp::servers:
     - grid-vobox.chpc.ac.za iburst
