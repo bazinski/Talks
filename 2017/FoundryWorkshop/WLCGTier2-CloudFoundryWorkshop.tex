@@ -36,7 +36,44 @@
 \titlepage
 \end{frame}
 
+
+
 \section{WLCG}
+\begin{frame}
+    \frametitle{Because we all love pretty pictures}
+    \includegraphics[scale=0.3]{LHCTop.jpg}
+\end{frame}
+
+\begin{frame}
+    \frametitle{LHC Accelerator Complex}
+    \includegraphics[scale=0.5]{LHCAcceleratorComplex.jpg}
+\end{frame}
+
+\begin{frame}
+    \frametitle{LHC Tunnel}
+    \includegraphics[scale=0.5]{LHCTunnel.pdf}
+\end{frame}
+
+\begin{frame}
+    \frametitle{ALICE}
+    \includegraphics{ALICE.jpg}
+\end{frame}
+\begin{frame}
+    \frametitle{ALICE Control Room}
+    \includegraphics{ALICEControlRoom.jpg}
+\end{frame}
+\begin{frame}
+    \frametitle{ALICE Event}
+    \center\includegraphics[scale=0.1]{ALICEEvent.pdf}
+\end{frame}
+\begin{frame}
+    \frametitle{ATLAS}
+    \includegraphics{ATLAS.jpg}
+\end{frame}
+\begin{frame}
+    \frametitle{ATLAS Control Room}
+    \includegraphics[scale=0.3]{ATLASControlRoom.jpg}
+\end{frame}
 
 \begin{frame}
 \frametitle{What is the WLCG}
@@ -121,7 +158,7 @@ Reduction in data sizes is due to reorganisation for reliability.
 
 
 \begin{frame}
-  \frametitle{Availability / Reliability}
+  \frametitle{Availability / Reliability - over riding metric}
   So who monitors us :
   \begin{itemize}
     \item WLCG
@@ -138,7 +175,6 @@ There are a lot of eyes, ignoring the ones in this room.\\
     Availability &  100   &  100     & 100 & 98.6 \\ \hline
     Reliability  &  100    &  100    & 100 & 99.5 \\ \hline
 \end{tabular}
-
 }
 \vspace{0.5cm}
 \end{frame}
@@ -177,10 +213,10 @@ There are a lot of eyes, ignoring the ones in this room.\\
   Thankfully both experiments use xrootd. ATLAS will soon deprecate SRM.
   \begin{itemize}
     \item ALICE has its own authentication system, controlled centrally from CERN.
-    \item ALICE has one big block of storage.
+    \item ALICE has one big storage pool, cut up centrally.
     \item ATLAS uses grid pool accounts, more standard grid.
     \item ATLAS has various storage's on site, cut up locally.
-    \item ATLAS on puppet, ALICE will go on puppet when upgraded, upgrade in eos required for ipv6(xrootd4).
+    \item ATLAS on puppet, ALICE will go on puppet when upgraded, upgrade in eos required for ipv6(xrootd4). ipv6 is a wlcg requirement come march 2018.
   \end{itemize}
 \end{frame}
 
@@ -188,11 +224,11 @@ There are a lot of eyes, ignoring the ones in this room.\\
 \begin{frame}
   \frametitle{Devops}
     \begin{itemize}
-            \item I am a software engineer and writing software is what I enjoy, preferably computational physics and hardware stuff.
-                \item So in the well trodden path of a theoretical physicist.
-                    \item Think of a cow as a sphere .....
-                        \item Lets approximate sys admin as a software problem.
-                        \item I want everything in git and tested, and those tests automated.
+            \item<1-> I am a software engineer and writing software is what I enjoy, preferably computational physics and hardware stuff.
+            \item<2-> So in the well trodden path of a theoretical physicist.
+            \item<3-> Think of a cow as a sphere .....
+            \item<4-> Lets approximate sys admin as a software problem.
+            \item<5-> I want everything in git and tested, and those tests automated.
     \end{itemize}
 
 \end{frame}
@@ -394,13 +430,14 @@ There are a lot of eyes, ignoring the ones in this room.\\
                             \item <5-> Any real test would take c. 72 hours to test properly with out annoying people.
                                 \item <6-> We could just not care ....
                                     \item <7-> But we want real tests, it helps you sleep at night.
+                                    \item <8-> The testing has to happen in public for full validation.
     \end{itemize}
 \end{frame}
 
 
 
 \begin{frame}
-  \frametitle{bandwidth - Does ANYBODY ever have enough.}
+  \frametitle{Bandwidth - Does ANYBODY ever have enough.}
   We were graciously donated a 1Gbps test.\\
   We used it all.\\
   We need more\ldots\ldots\ldots \\
@@ -418,7 +455,7 @@ will become even worse once we get our 2PB installed (and used).
     \item<2-> remove as much human contact as possible.
     \item<3-> abstract as much away to bot and psuedo bots
     \item<4-> let the science take priority.
-    \item<5> William and I can sit back, drink espresso and watch some graphs ....
+    \item<5-> William and I can sit back, drink espresso and watch some graphs ....
     \item<6> FROM THE BEACH !
   \end{itemize}
 \end{frame}
@@ -433,14 +470,8 @@ will become even worse once we get our 2PB installed (and used).
 \end{frame}
 
 \begin{frame}
-  \frametitle{IOU table}
-  \includegraphics[scale=0.51,trim={1cm 5cm 1cm 18cm},clip]{mou_page23.pdf}\\
-  \includegraphics[scale=0.51, trim={1cm 10cm 1cm 2cm},clip]{mou_page24.pdf}
-\end{frame}
-
-\begin{frame}
-  \frametitle{mou table}
-  \includegraphics[scale=0.5, trim={1cm 7cm 1cm 11cm},clip]{mou_page25.pdf}
+    \frametitle{Data Route}
+  \includegraphics[scale=1]{african_undersea_cables.jpg}
 \end{frame}
 
 \end{document}
