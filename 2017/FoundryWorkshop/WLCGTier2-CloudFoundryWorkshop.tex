@@ -303,10 +303,22 @@ There are a lot of eyes, ignoring the ones in this room.\\
 
 %explain beaker testing. give example
 \begin{frame}
-    \frametitle{Beaker example}
-    Getting there .... \\
-    Foreman templates written for some of beaker.
-    Trying to integrate beaker tests and zabbix tests so tests are the same live and simulated.
+    \frametitle{Beaker}
+    \begin{itemize}
+        \item Getting there .... \\
+        \item Foreman templates written for some of beaker.
+        \item Trying to integrate beaker tests and zabbix tests so tests are the same live and simulated. (pet project)
+    \end{itemize}
+    \end{frame}
+\begin{frame}
+    \frametitle{Beaker Pretty interface}
+    Not surprisingly we get to a software engineering test case website ...\\
+    \includegraphics[scale=0.25]{BeakerTest.pdf}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Beaker Pretty interface}
+    \includegraphics[scale=0.25]{BeakerDetail.pdf}
 \end{frame}
 
 \begin{frame}
@@ -334,10 +346,12 @@ There are a lot of eyes, ignoring the ones in this room.\\
     \begin{itemize}
             \item Deploy and maintain the entire lifecycle of a machine.
             \item Deploy to cloud (numerous),
-                \item deploy containers.
-                    \item monitor health e.g. puppet status.
-                    \item Combined with Katello and pulp, maintain package configurations (ignored)
-                    \item Replace r10k (at least how we use it) and keep the different branches of puppet for dev/test/prod.
+            \item deploy containers.
+            \item monitor health e.g. puppet status.
+            \item Combined with Katello and pulp, maintain package configurations (ignored)
+            \item <2->Why ditch so much functionality? 
+            \item <3->puppet-yum gets us back to {\color{red} {\bf everything}} in a series of git repos. Remember where I am coming from.
+            \item <4->Replace r10k (at least how we use it) and keep the different branches of puppet for dev/test/prod.
     \end{itemize}
     We currently use it as almost a cobbler replacement, this might change.
 \end{frame}
@@ -371,20 +385,41 @@ There are a lot of eyes, ignoring the ones in this room.\\
 \end{frame}
 
 \begin{frame}
-  \frametitle{bandwidth}
+    \frametitle{Flies in the ointment}
+    \begin{itemize}
+            \item <1->Just when you think you on top of it .....
+                \item <2-> Can not run tests on git update, waaaay to slow, but that is the least of the problems.
+                    \item <3-> ALICE Job agents run for 28 hours
+                        \item <4-> ATLAS pilot jobs run for c. 48 hours.
+                            \item <5-> Any real test would take c. 72 hours to test properly with out annoying people.
+                                \item <6-> We could just not care ....
+                                    \item <7-> But we want real tests, it helps you sleep at night.
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{bandwidth - Does ANYBODY ever have enough.}
   We were graciously donated a 1Gbps test.\\
   We used it all.\\
   We need more\ldots\ldots\ldots \\
   We have cables on order and then will upgrade to 10Gbps for testing purposes.
 \end{frame}
-
+\begin{frame}
+    \frametitle{bandwidth yesterday}
+\center    \includegraphics[scale=0.25]{Tier2Bandwidthcrop.pdf} \\ % TODO scale the crop the image.
+Note the blue part, as our storage gets used the blue, international storage transfers becomes more significant than the rest. This
+will become even worse once we get our 2PB installed (and used).
+\end{frame}
 \begin{frame}
   \frametitle{Summary}
   \begin{itemize}
-    \item<1-> remove as much human contact as possible.
-    \item<2-> abstract as much away to bot and psuedo bots
-    \item<3-> let the science take priority.
-    \item<4> William and I can sit back, drink espresso and watch some graphs ....
+    \item<2-> remove as much human contact as possible.
+    \item<3-> abstract as much away to bot and psuedo bots
+    \item<4-> let the science take priority.
+    \item<5> William and I can sit back, drink espresso and watch some graphs ....
+    \item<6> FROM THE BEACH !
   \end{itemize}
 \end{frame}
 
