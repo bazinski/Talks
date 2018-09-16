@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <img src="images/coderade.png" id=coderadelogo alt=coderadelogo ><br>
+                    <H1> CODE-RADE </h1> <br>
+                    Bruce Becker and Sean Murray
+
+                </section>
+				
+                <section>
+                 <h2>Outline</h2>                                                                                                                                               
+                   <p>Background</p>
+                   <p class="fragment grow"> The reality of computational infrastructure</p>                 
+                   <p class="fragment grow ">... to step through ...</p>                                                                                                                  
+                   <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>                                         
+                   <aside class="notes">                                                                                                                                            
+                      This slide has fragments which are also stepped through in the notes window.                                                                                 
+                                   134                         </aside>    
+                
+                </section>
+				<section>b</section>
+				<section>c</section>
+				<section>d</section>
+				<section>e</section>
+				<section>f</section>
+				<section>g</section>
+				<section>h</section>
+				<section>i</section>
+				<section>j</section>
+				<section>k</section>
+				<section>l</section>
+				<section>m</section>
+				<section>n</section>
+				<section>o</section>
+				<section>p</section>
+				<section>q</section>
+				<section>r</section>
+				<section>s</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
